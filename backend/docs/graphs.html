@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTO Agent — Workflow Graphs</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Inter, system-ui, sans-serif; background: #f8fafc; color: #1e293b; padding: 2rem; }
+        h1 { text-align: center; margin-bottom: 0.5rem; font-size: 2rem; }
+        .subtitle { text-align: center; color: #64748b; margin-bottom: 2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 1.5rem; max-width: 1400px; margin: 0 auto; }
+        .card { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .card h2 { font-size: 1.25rem; margin-bottom: 0.25rem; }
+        .desc { color: #64748b; font-size: 0.875rem; margin-bottom: 1rem; }
+        .mermaid { display: flex; justify-content: center; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>AI Startup CTO Agent</h1>
+    <p class="subtitle">Agent Workflow Graphs</p>
+    <div class="grid">
+        <div class="card">
+            <h2>Planner Agent</h2>
+            <p class="desc">Analyzes requirements and orchestrates the agent workflow</p>
+            <pre class="mermaid">---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	plan(plan)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> plan;
+	plan --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
+</pre>
+        </div>
+        <div class="card">
+            <h2>Product Agent</h2>
+            <p class="desc">Extracts business requirements and core features</p>
+            <pre class="mermaid">---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	analyze(analyze)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> analyze;
+	analyze --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
+</pre>
+        </div>
+        <div class="card">
+            <h2>Architecture Agent</h2>
+            <p class="desc">Designs technical stack and system components</p>
+            <pre class="mermaid">---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	design(design)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> design;
+	design --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
+</pre>
+        </div>
+        <div class="card">
+            <h2>Engineering Agent</h2>
+            <p class="desc">Generates DB schemas, APIs, and sprint roadmaps</p>
+            <pre class="mermaid">---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	generate(generate)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> generate;
+	generate --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
+</pre>
+        </div>
+        <div class="card">
+            <h2>Reviewer Agent</h2>
+            <p class="desc">Evaluates feasibility, scalability, and constraints</p>
+            <pre class="mermaid">---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	review(review)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> review;
+	review --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc
+</pre>
+        </div>
+    </div>
+    <script>mermaid.initialize({ startOnLoad: true, theme: 'default', securityLevel: 'loose' });</script>
+</body>
+</html>
