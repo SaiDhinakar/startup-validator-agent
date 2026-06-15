@@ -1,3 +1,5 @@
+"""V1 API router. All endpoint modules are included here."""
+
 from fastapi import APIRouter
 
 api_router = APIRouter()

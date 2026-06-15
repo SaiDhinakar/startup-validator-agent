@@ -1,3 +1,5 @@
+"""FastAPI application entry point. Mounts routers and defines health endpoint."""
+
 from fastapi import FastAPI
 
 from app.config import settings
