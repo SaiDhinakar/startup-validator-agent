@@ -1,16 +1,15 @@
-"""Orchestrator agent state schema."""
+"""Engineering agent state schema."""
 
 from typing import TypedDict
 
 
-class OrchestratorState(TypedDict):
+class EngineeringState(TypedDict):
     idea: str
     budget: str
     team_size: str
-    architecture: dict
+    timeline: str
     database: dict
     api: dict
-    infrastructure: dict
     sprints: dict
     hiring: dict
-    errors: list[str]
+    reasoning: str

@@ -11,12 +11,12 @@ class StrategyDocument(BaseModel):
     idea: str
     budget: str
     team_size: str
+    timeline: str
+    planner: dict = {}
+    product: dict = {}
     architecture: dict = {}
-    database: dict = {}
-    api: dict = {}
-    infrastructure: dict = {}
-    sprints: dict = {}
-    hiring: dict = {}
+    engineering: dict = {}
+    review: dict = {}
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: datetime = Field(default_factory=datetime.utcnow)
 

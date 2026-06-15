@@ -13,6 +13,7 @@ def design_node(state: ArchitectureState) -> dict:
         idea=state["idea"],
         budget=state["budget"],
         team_size=state["team_size"],
+        timeline=state["timeline"],
     )
     response = llm.invoke([
         {"role": "system", "content": ARCHITECTURE_SYSTEM},

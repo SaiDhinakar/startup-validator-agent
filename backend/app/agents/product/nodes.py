@@ -1,21 +1,22 @@
-"""Hiring agent graph nodes."""
+"""Product agent graph nodes."""
 
 from langchain_core.messages import HumanMessage
 
 from app.core.llm import get_llm
-from app.agents.hiring.prompts import HIRING_SYSTEM, HIRING_USER
-from app.agents.hiring.state import HiringState
+from app.agents.product.prompts import PRODUCT_SYSTEM, PRODUCT_USER
+from app.agents.product.state import ProductState
 
 
-def plan_node(state: HiringState) -> dict:
+def analyze_node(state: ProductState) -> dict:
     llm = get_llm(temperature=0.5)
-    prompt = HIRING_USER.format(
+    prompt = PRODUCT_USER.format(
         idea=state["idea"],
         budget=state["budget"],
         team_size=state["team_size"],
+        timeline=state["timeline"],
     )
     response = llm.invoke([
-        {"role": "system", "content": HIRING_SYSTEM},
+        {"role": "system", "content": PRODUCT_SYSTEM},
         HumanMessage(content=prompt),
     ])
     return {"reasoning": response.content}
