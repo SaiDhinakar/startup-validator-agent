@@ -8,6 +8,7 @@ class PlannerState(TypedDict):
     budget: str
     team_size: str
     timeline: str
+    plan: str
     product_output: dict
     architecture_output: dict
     engineering_output: dict

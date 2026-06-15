@@ -12,7 +12,6 @@ dependencies = [
     "langchain-core>=0.3.0",
     "langchain-google-genai>=2.0.0",
     "motor>=3.5.0",
-    "bson>=0.5.0",
 ]
 
 [project.optional-dependencies]
@@ -31,3 +30,9 @@ select = ["E", "F", "I", "N", "UP", "B"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.0",
+]
