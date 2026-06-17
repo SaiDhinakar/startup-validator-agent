@@ -1,15 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-background: #fafafa;
+  --color-foreground: #18181b;
+  --color-muted: #71717a;
+  --color-muted-foreground: #a1a1aa;
+  --color-border: #e4e4e7;
+  --color-accent: #27272a;
+  --color-accent-foreground: #fafafa;
+  --color-card: #ffffff;
+  --color-card-foreground: #18181b;
+  --color-destructive: #ef4444;
+  --color-success: #22c55e;
+  --color-ring: #a1a1aa;
 }
 
 body {
   font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  margin: 0;
 }
+
+* {
+  border-color: var(--color-border);
+}
+
+/* Agent progress pulse animation */
+@keyframes agent-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.agent-pulse {
+  animation: agent-pulse 1.5s ease-in-out infinite;
+}
+
+/* Spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Markdown content styling */
+.markdown-content h1 { font-size: 1.5rem; font-weight: 700; margin: 1rem 0 0.5rem; }
+.markdown-content h2 { font-size: 1.25rem; font-weight: 600; margin: 1rem 0 0.5rem; }
+.markdown-content h3 { font-size: 1.1rem; font-weight: 600; margin: 0.75rem 0 0.25rem; }
+.markdown-content p { margin: 0.5rem 0; line-height: 1.6; }
+.markdown-content ul { list-style: disc; padding-left: 1.5rem; margin: 0.5rem 0; }
+.markdown-content ol { list-style: decimal; padding-left: 1.5rem; margin: 0.5rem 0; }
+.markdown-content li { margin: 0.25rem 0; }
+.markdown-content strong { font-weight: 600; }
+.markdown-content code { background: #f4f4f5; padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.875rem; }
+.markdown-content pre { background: #18181b; color: #fafafa; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 0.75rem 0; }
+.markdown-content pre code { background: transparent; color: inherit; padding: 0; }
+.markdown-content blockquote { border-left: 3px solid #d4d4d8; padding-left: 1rem; color: #71717a; margin: 0.5rem 0; }
+.markdown-content table { border-collapse: collapse; width: 100%; margin: 0.5rem 0; }
+.markdown-content th, .markdown-content td { border: 1px solid #e4e4e7; padding: 0.5rem 0.75rem; text-align: left; }
+.markdown-content th { background: #f4f4f5; font-weight: 600; }
