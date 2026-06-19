@@ -1,16 +1,17 @@
 """Tests for individual agent nodes with mocked LLM."""
 
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
-from tests.mock_data import MOCK_RESPONSES
 from tests.conftest import MockLLMResponse
+from tests.mock_data import MOCK_RESPONSES
 
-
-MOCK_INPUT = {
-    "idea": "Build an Uber clone for grocery delivery",
-    "budget": "₹10,00,000",
-    "team_size": "5",
-    "timeline": "3 months",
+MOCK_CTO_INPUT = {
+    "product_name": "Uber Clone",
+    "product_type": "Mobile App",
+    "budget": 1000000,
+    "team_size": 5,
+    "timeline_months": 6,
+    "target_users": "Urban commuters",
 }
 
 
@@ -22,68 +23,120 @@ def _make_mock_llm(response_key: str):
 
 class TestPlannerAgent:
     def test_plan_node_returns_plan(self):
-        with patch("app.agents.planner.nodes.get_llm", return_value=_make_mock_llm("planner")):
+        with patch(
+            "app.agents.planner.nodes.get_llm",
+            return_value=_make_mock_llm("planner"),
+        ):
             from app.agents.planner.nodes import plan_node
 
-            result = plan_node({**MOCK_INPUT, "product_output": {}, "architecture_output": {}, "engineering_output": {}, "review_output": {}, "errors": []})
+            state = {**MOCK_CTO_INPUT, "plan": ""}
+            result = plan_node(state)
             assert "plan" in result
-            assert "domains" in result["plan"]
+            assert len(result["plan"]) > 0
 
     def test_plan_node_receives_correct_prompt(self):
         mock_llm = _make_mock_llm("planner")
-        with patch("app.agents.planner.nodes.get_llm", return_value=mock_llm):
+        with patch(
+            "app.agents.planner.nodes.get_llm", return_value=mock_llm
+        ):
             from app.agents.planner.nodes import plan_node
 
-            plan_node({**MOCK_INPUT, "product_output": {}, "architecture_output": {}, "engineering_output": {}, "review_output": {}, "errors": []})
+            state = {**MOCK_CTO_INPUT, "plan": ""}
+            plan_node(state)
             call_args = mock_llm.invoke.call_args[0][0]
-            user_msg = [m for m in call_args if hasattr(m, "content") and "Build an Uber clone" in m.content][0]
-            assert "Build an Uber clone" in user_msg.content
-
-
-class TestProductAgent:
-    def test_analyze_node_returns_reasoning(self):
-        with patch("app.agents.product.nodes.get_llm", return_value=_make_mock_llm("product")):
-            from app.agents.product.nodes import analyze_node
-
-            result = analyze_node({**MOCK_INPUT, "target_users": [], "core_features": [], "user_flows": [], "business_rules": [], "mvp_scope": {}, "reasoning": ""})
-            assert "reasoning" in result
-            assert "target_users" in result["reasoning"]
-
-
-class TestArchitectureAgent:
-    def test_design_node_returns_reasoning(self):
-        with patch("app.agents.architecture.nodes.get_llm", return_value=_make_mock_llm("architecture")):
-            from app.agents.architecture.nodes import design_node
-
-            result = design_node({**MOCK_INPUT, "components": [], "connections": [], "tech_stack": [], "infrastructure": {}, "reasoning": ""})
-            assert "reasoning" in result
-            assert "components" in result["reasoning"]
-
-
-class TestEngineeringAgent:
-    def test_generate_node_returns_reasoning(self):
-        with patch("app.agents.engineering.nodes.get_llm", return_value=_make_mock_llm("engineering")):
-            from app.agents.engineering.nodes import generate_node
-
-            result = generate_node({**MOCK_INPUT, "database": {}, "api": {}, "sprints": {}, "hiring": {}, "reasoning": ""})
-            assert "reasoning" in result
-            assert "database" in result["reasoning"]
+            user_msg = [m for m in call_args if hasattr(m, "content")][0]
+            assert "Uber Clone" in user_msg.content
 
 
 class TestReviewerAgent:
-    def test_review_node_returns_reasoning(self):
-        with patch("app.agents.reviewer.nodes.get_llm", return_value=_make_mock_llm("reviewer")):
-            from app.agents.reviewer.nodes import review_node
+    def test_review_valid_output(self):
+        with patch(
+            "app.agents.reviewer.nodes.get_llm",
+            return_value=_make_mock_llm("reviewer_valid"),
+        ):
+            from app.agents.reviewer.nodes import review_agent_output
 
-            result = review_node({
-                **MOCK_INPUT,
-                "architecture_output": {},
-                "engineering_output": {},
-                "feasibility_score": 0,
-                "risks": [],
-                "recommendations": [],
-                "verdict": "",
-                "reasoning": "",
-            })
-            assert "reasoning" in result
-            assert "feasibility_score" in result["reasoning"]
+            result = review_agent_output(
+                idea="Test idea",
+                agent_name="planner",
+                agent_output="<h1>Test Plan</h1>",
+                context=MOCK_CTO_INPUT,
+            )
+            assert result["valid"] is True
+
+    def test_review_invalid_output(self):
+        with patch(
+            "app.agents.reviewer.nodes.get_llm",
+            return_value=_make_mock_llm("reviewer_invalid"),
+        ):
+            from app.agents.reviewer.nodes import review_agent_output
+
+            result = review_agent_output(
+                idea="Test idea",
+                agent_name="planner",
+                agent_output="<h1>Generic content</h1>",
+                context=MOCK_CTO_INPUT,
+            )
+            assert result["valid"] is False
+            assert "fabricated" in result["reason"].lower()
+
+
+class TestFeasibilityAgent:
+    def test_feasibility_node_returns_report(self):
+        with patch(
+            "app.agents.feasibility.nodes.get_llm",
+            return_value=_make_mock_llm("feasibility"),
+        ):
+            from app.agents.feasibility.nodes import feasibility_node
+
+            state = {**MOCK_CTO_INPUT, "plan": "Test plan", "feasibility_report": ""}
+            result = feasibility_node(state)
+            assert "feasibility_report" in result
+            assert len(result["feasibility_report"]) > 0
+
+
+class TestMarketAgent:
+    def test_market_node_returns_analysis(self):
+        with patch(
+            "app.agents.market.nodes.get_llm",
+            return_value=_make_mock_llm("market"),
+        ):
+            from app.agents.market.nodes import market_node
+
+            state = {**MOCK_CTO_INPUT, "plan": "Test plan", "market_analysis": ""}
+            result = market_node(state)
+            assert "market_analysis" in result
+            assert len(result["market_analysis"]) > 0
+
+
+class TestGrowthAgent:
+    def test_growth_node_returns_strategy(self):
+        with patch(
+            "app.agents.growth.nodes.get_llm",
+            return_value=_make_mock_llm("growth"),
+        ):
+            from app.agents.growth.nodes import growth_node
+
+            state = {
+                **MOCK_CTO_INPUT,
+                "plan": "Test plan",
+                "market_analysis": "Test market",
+                "growth_strategy": "",
+            }
+            result = growth_node(state)
+            assert "growth_strategy" in result
+            assert len(result["growth_strategy"]) > 0
+
+
+class TestHiringAgent:
+    def test_hiring_node_returns_plan(self):
+        with patch(
+            "app.agents.hiring.nodes.get_llm",
+            return_value=_make_mock_llm("hiring"),
+        ):
+            from app.agents.hiring.nodes import hiring_node
+
+            state = {**MOCK_CTO_INPUT, "plan": "Test plan", "hiring_plan": ""}
+            result = hiring_node(state)
+            assert "hiring_plan" in result
+            assert len(result["hiring_plan"]) > 0

@@ -5,9 +5,9 @@ import { cn } from "../lib/utils";
 export default function InputArea({ onSubmit, disabled }) {
   const [idea, setIdea] = useState("");
   const [showOptional, setShowOptional] = useState(false);
-  const [budget, setBudget] = useState("$100K - $250K");
-  const [teamSize, setTeamSize] = useState("4-6");
-  const [timeline, setTimeline] = useState("3-4 months");
+  const [budget, setBudget] = useState("");
+  const [teamSize, setTeamSize] = useState("");
+  const [timeline, setTimeline] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -66,6 +66,7 @@ export default function InputArea({ onSubmit, disabled }) {
                 type="text"
                 value={budget}
                 onChange={(e) => setBudget(e.target.value)}
+                placeholder="e.g. $100K"
                 className="w-full px-3 py-1.5 rounded-lg border border-[var(--color-border)] text-sm bg-white focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
               />
             </div>
@@ -77,6 +78,7 @@ export default function InputArea({ onSubmit, disabled }) {
                 type="text"
                 value={teamSize}
                 onChange={(e) => setTeamSize(e.target.value)}
+                placeholder="e.g. 4-6"
                 className="w-full px-3 py-1.5 rounded-lg border border-[var(--color-border)] text-sm bg-white focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
               />
             </div>
@@ -88,6 +90,7 @@ export default function InputArea({ onSubmit, disabled }) {
                 type="text"
                 value={timeline}
                 onChange={(e) => setTimeline(e.target.value)}
+                placeholder="e.g. 3-6 months"
                 className="w-full px-3 py-1.5 rounded-lg border border-[var(--color-border)] text-sm bg-white focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
               />
             </div>

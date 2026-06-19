@@ -4,14 +4,16 @@ version = "0.1.0"
 description = "Backend API for Startup CTO Agent"
 requires-python = ">=3.12"
 dependencies = [
-    "fastapi>=0.115.0",
+    "fastapi[standard]>=0.115.0",
     "uvicorn[standard]>=0.30.0",
     "pydantic>=2.0.0",
     "pydantic-settings>=2.0.0",
     "langgraph>=1.0.0",
     "langchain-core>=0.3.0",
     "langchain-google-genai>=2.0.0",
+    "langchain-openai>=0.3.0",
     "motor>=3.5.0",
+    "ddgs>=9.14.4",
 ]
 
 [project.optional-dependencies]

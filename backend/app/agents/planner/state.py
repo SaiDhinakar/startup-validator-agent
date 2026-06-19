@@ -8,9 +8,8 @@ class PlannerState(TypedDict):
     budget: str
     team_size: str
     timeline: str
+    product_name: str
+    product_type: str
+    timeline_months: int
+    target_users: str
     plan: str
-    product_output: dict
-    architecture_output: dict
-    engineering_output: dict
-    review_output: dict
-    errors: list[str]

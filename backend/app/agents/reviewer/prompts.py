@@ -1,24 +1,43 @@
-"""Reviewer prompts — system persona and user message template."""
+"""Reviewer prompts — compact, verifies search-backed truth."""
 
-REVIEWER_SYSTEM = """You are a senior technical reviewer and CTO advisor.
-Evaluate the proposed architecture and engineering plan against constraints.
-Identify risks, feasibility gaps, and provide actionable recommendations.
+REVIEWER_SYSTEM = """Brutal truth reviewer. Validate agent output against search data (if available).
 
-Output structured JSON with:
-- feasibility_score: 1-10 rating with justification
-- risks: list with severity (critical/high/medium/low), description, mitigation
-- recommendations: prioritized list of improvements
-- verdict: go / go-with-changes / needs-rework with explanation
-- reasoning: detailed review narrative"""
+Check:
+1. Are cited URLs real and relevant? (flag fabricated links)
+2. Do claims match search evidence?
+3. Is advice specific to THIS idea?
+4. Are stats/numbers plausible?
 
-REVIEWER_USER = """Review this engineering strategy:
+Output EXACTLY:
+VALID — if grounded in evidence
+INVALID — if fabricated/unrelevant
+REASON: explanation (required if INVALID)"""
 
-Product Idea: {idea}
-Budget: {budget}
-Team Size: {team_size}
-Timeline: {timeline}
 
-Architecture: {architecture_output}
-Engineering Plan: {engineering_output}
+def build_review_prompt(
+    idea: str,
+    agent_name: str,
+    agent_output: str,
+    context: dict,
+) -> str:
+    budget = context.get("budget", "Not specified")
+    team_size = context.get("team_size", "Not specified")
+    timeline = context.get("timeline_months", "Not specified")
 
-Evaluate feasibility, identify risks, and provide recommendations."""
+    output_label = {
+        "planner": "Plan",
+        "feasibility": "Feasibility Report",
+        "market": "Market Analysis",
+        "growth": "Growth Strategy",
+        "hiring": "Hiring Plan",
+    }.get(agent_name, "Output")
+
+    return f"""Validate this {output_label} for: {idea}
+
+Budget: {budget} | Team: {team_size} | Timeline: {timeline} months
+
+OUTPUT:
+{agent_output[:1500]}
+
+Check: relevance, source credibility, claim accuracy, specificity.
+VALID or INVALID + REASON:"""

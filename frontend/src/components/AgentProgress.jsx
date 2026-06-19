@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ClipboardList,
@@ -8,8 +7,11 @@ import {
   Users,
   Check,
   Loader2,
+  AlertTriangle,
+  XCircle,
+  Search,
 } from "lucide-react";
-import { AGENT_ORDER, AGENT_DELAYS } from "../lib/dummy";
+import { AGENT_ORDER } from "../lib/dummy";
 import { cn } from "../lib/utils";
 
 const ICONS = {
@@ -20,50 +22,34 @@ const ICONS = {
   Users,
 };
 
-export default function AgentProgress({ isRunning, onComplete }) {
-  const [completed, setCompleted] = useState([]);
-  const [current, setCurrent] = useState(-1);
+function getStatusInfo(status) {
+  if (!status) return { label: "Waiting", color: "text-[var(--color-muted)]", icon: null };
 
-  useEffect(() => {
-    if (!isRunning) {
-      setCompleted([]);
-      setCurrent(-1);
-      return;
-    }
+  const s = typeof status === "string" ? status : status.state;
+  const detail = typeof status === "object" ? status.detail : null;
 
-    setCompleted([]);
-    setCurrent(0);
+  switch (s) {
+    case "running":
+      return { label: detail || "Working...", color: "text-[var(--color-foreground)]", icon: "spinner" };
+    case "reviewing":
+      return { label: detail || "Reviewing...", color: "text-amber-600", icon: "search" };
+    case "retrying":
+      return { label: detail || "Retrying...", color: "text-orange-500", icon: "retry" };
+    case "skipped":
+      return { label: detail || "Skipped", color: "text-red-500", icon: "skip" };
+    case "done":
+      return { label: "Completed", color: "text-green-700", icon: "check" };
+    default:
+      return { label: "Waiting", color: "text-[var(--color-muted)]", icon: null };
+  }
+}
 
-    let timeouts = [];
-    let cumulativeDelay = 0;
+export default function AgentProgress({ agentStatus, selectedAgents }) {
+  if (!agentStatus || Object.keys(agentStatus).length === 0) return null;
 
-    AGENT_ORDER.forEach((agent, index) => {
-      const startDelay = cumulativeDelay;
-      const endDelay = cumulativeDelay + AGENT_DELAYS[index];
-
-      timeouts.push(
-        setTimeout(() => {
-          setCurrent(index);
-        }, startDelay)
-      );
-
-      timeouts.push(
-        setTimeout(() => {
-          setCompleted((prev) => [...prev, index]);
-          if (index === AGENT_ORDER.length - 1) {
-            setCurrent(-1);
-            setTimeout(() => onComplete?.(), 500);
-          }
-        }, endDelay)
-      );
-
-      cumulativeDelay = endDelay;
-    });
-
-    return () => timeouts.forEach(clearTimeout);
-  }, [isRunning]);
-
-  if (!isRunning && completed.length === 0) return null;
+  const visibleAgents = selectedAgents
+    ? AGENT_ORDER.filter((a) => a.key === "planner" || selectedAgents.includes(a.key))
+    : AGENT_ORDER;
 
   return (
     <div className="bg-white border border-[var(--color-border)] rounded-xl p-5 shadow-sm">
@@ -72,10 +58,15 @@ export default function AgentProgress({ isRunning, onComplete }) {
       </h3>
       <div className="space-y-3">
         <AnimatePresence>
-          {AGENT_ORDER.map((agent, index) => {
-            const isDone = completed.includes(index);
-            const isActive = current === index;
-            const isWaiting = !isDone && !isActive;
+          {visibleAgents.map((agent, index) => {
+            const status = agentStatus[agent.key];
+            const statusInfo = getStatusInfo(status);
+            const isDone = typeof status === "object" ? status?.state === "done" : status === "done";
+            const isRunning = typeof status === "object"
+              ? ["running", "reviewing", "retrying"].includes(status?.state)
+              : status === "running";
+            const isSkipped = typeof status === "object" ? status?.state === "skipped" : false;
+            const isWaiting = !status;
             const Icon = ICONS[agent.icon];
 
             return (
@@ -87,7 +78,8 @@ export default function AgentProgress({ isRunning, onComplete }) {
                 className={cn(
                   "flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-300",
                   isDone && "bg-green-50",
-                  isActive && "bg-[#f4f4f5] agent-pulse",
+                  isRunning && "bg-[#f4f4f5] agent-pulse",
+                  isSkipped && "bg-red-50",
                   isWaiting && "opacity-40"
                 )}
               >
@@ -95,13 +87,16 @@ export default function AgentProgress({ isRunning, onComplete }) {
                   className={cn(
                     "w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0",
                     isDone && "bg-green-100 text-green-600",
-                    isActive && "bg-[var(--color-accent)] text-white",
+                    isRunning && "bg-[var(--color-accent)] text-white",
+                    isSkipped && "bg-red-100 text-red-500",
                     isWaiting && "bg-[#f4f4f5] text-[var(--color-muted)]"
                   )}
                 >
                   {isDone ? (
                     <Check size={16} />
-                  ) : isActive ? (
+                  ) : isSkipped ? (
+                    <XCircle size={16} />
+                  ) : isRunning ? (
                     <Loader2 size={16} className="spinner" />
                   ) : (
                     <Icon size={16} />
@@ -112,18 +107,18 @@ export default function AgentProgress({ isRunning, onComplete }) {
                     className={cn(
                       "text-sm font-medium",
                       isDone && "text-green-700",
-                      isActive && "text-[var(--color-foreground)]",
+                      isRunning && "text-[var(--color-foreground)]",
+                      isSkipped && "text-red-600",
                       isWaiting && "text-[var(--color-muted)]"
                     )}
                   >
                     {agent.label} Agent
                   </div>
-                  <div className="text-xs text-[var(--color-muted)]">
-                    {isDone
-                      ? "Completed"
-                      : isActive
-                      ? "Working..."
-                      : "Waiting"}
+                  <div className={cn("text-xs flex items-center gap-1", statusInfo.color)}>
+                    {statusInfo.icon === "spinner" && <Loader2 size={10} className="spinner" />}
+                    {statusInfo.icon === "search" && <Search size={10} />}
+                    {statusInfo.icon === "skip" && <AlertTriangle size={10} />}
+                    {statusInfo.label}
                   </div>
                 </div>
               </motion.div>

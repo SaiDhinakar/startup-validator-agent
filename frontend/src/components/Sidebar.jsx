@@ -1,7 +1,7 @@
-import { Plus, MessageSquare, Trash2 } from "lucide-react";
+import { Plus, MessageSquare, Trash2, X } from "lucide-react";
 import { cn } from "../lib/utils";
 
-export default function Sidebar({ history, activeId, onSelect, onNewChat, onClear }) {
+export default function Sidebar({ history, activeId, onSelect, onNewChat, onClear, onDelete }) {
   return (
     <aside className="w-72 h-screen bg-white border-r border-[var(--color-border)] flex flex-col fixed left-0 top-0 z-20">
       <div className="p-4 border-b border-[var(--color-border)]">
@@ -13,7 +13,7 @@ export default function Sidebar({ history, activeId, onSelect, onNewChat, onClea
             <button
               onClick={onClear}
               className="p-1.5 text-[var(--color-muted)] hover:text-[var(--color-destructive)] hover:bg-red-50 rounded-md transition-colors"
-              title="Clear history"
+              title="Clear all history"
             >
               <Trash2 size={16} />
             </button>
@@ -41,26 +41,55 @@ export default function Sidebar({ history, activeId, onSelect, onNewChat, onClea
         ) : (
           <div className="space-y-1">
             {history.map((item) => (
-              <button
+              <div
                 key={item.id}
-                onClick={() => onSelect(item.id)}
                 className={cn(
-                  "w-full text-left px-3 py-2.5 rounded-lg text-sm transition-colors",
+                  "group flex items-center gap-1 rounded-lg transition-colors",
                   activeId === item.id
-                    ? "bg-[var(--color-accent)] text-[var(--color-accent-foreground)]"
-                    : "text-[var(--color-foreground)] hover:bg-[#f4f4f5]"
+                    ? "bg-[var(--color-accent)]"
+                    : "hover:bg-[#f4f4f5]"
                 )}
               >
-                <div className="truncate font-medium">{item.idea}</div>
-                <div
-                  className={cn(
-                    "text-xs mt-0.5",
-                    activeId === item.id ? "opacity-70" : "text-[var(--color-muted)]"
-                  )}
+                <button
+                  onClick={() => onSelect(item.id)}
+                  className="flex-1 text-left px-3 py-2.5 text-sm"
                 >
-                  {new Date(item.created_at).toLocaleDateString()}
-                </div>
-              </button>
+                  <div
+                    className={cn(
+                      "truncate font-medium",
+                      activeId === item.id
+                        ? "text-[var(--color-accent-foreground)]"
+                        : "text-[var(--color-foreground)]"
+                    )}
+                  >
+                    {item.idea}
+                  </div>
+                  <div
+                    className={cn(
+                      "text-xs mt-0.5",
+                      activeId === item.id ? "opacity-70 text-[var(--color-accent-foreground)]" : "text-[var(--color-muted)]"
+                    )}
+                  >
+                    {new Date(item.created_at).toLocaleDateString()}
+                  </div>
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onDelete?.(item.id);
+                  }}
+                  className={cn(
+                    "p-1.5 mr-1 rounded-md transition-colors flex-shrink-0",
+                    "opacity-0 group-hover:opacity-100",
+                    activeId === item.id
+                      ? "text-[var(--color-accent-foreground)] hover:bg-white/20"
+                      : "text-[var(--color-muted)] hover:text-[var(--color-destructive)] hover:bg-red-50"
+                  )}
+                  title="Delete chat"
+                >
+                  <X size={14} />
+                </button>
+              </div>
             ))}
           </div>
         )}

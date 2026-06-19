@@ -18,10 +18,10 @@ class TestStrategyDocument:
         assert doc.team_size == "3"
         assert doc.timeline == "2 months"
         assert doc.planner == {}
-        assert doc.product == {}
-        assert doc.architecture == {}
-        assert doc.engineering == {}
-        assert doc.review == {}
+        assert doc.feasibility_report == {}
+        assert doc.market_analysis == {}
+        assert doc.growth_strategy == {}
+        assert doc.hiring_plan == {}
         assert isinstance(doc.created_at, datetime)
         assert isinstance(doc.updated_at, datetime)
 
@@ -32,13 +32,12 @@ class TestStrategyDocument:
             team_size="5",
             timeline="3 months",
             planner={"plan": "test plan"},
-            product={"features": ["auth", "dashboard"]},
-            architecture={"components": ["api", "db"]},
-            engineering={"sprints": ["sprint 1"]},
-            review={"verdict": "go"},
+            feasibility_report={"report": "feasibility data"},
+            market_analysis={"analysis": "market data"},
         )
         assert doc.planner == {"plan": "test plan"}
-        assert doc.review == {"verdict": "go"}
+        assert doc.feasibility_report == {"report": "feasibility data"}
+        assert doc.market_analysis == {"analysis": "market data"}
 
     def test_document_serialization(self):
         doc = StrategyDocument(

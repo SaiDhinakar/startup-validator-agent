@@ -1,24 +1,35 @@
-"""Reviewer agent graph nodes."""
+"""Reviewer agent — validates agent outputs for ground truth accuracy."""
 
 from langchain_core.messages import HumanMessage
 
+from app.agents.reviewer.prompts import REVIEWER_SYSTEM, build_review_prompt
 from app.core.llm import get_llm
-from app.agents.reviewer.prompts import REVIEWER_SYSTEM, REVIEWER_USER
-from app.agents.reviewer.state import ReviewerState
 
 
-def review_node(state: ReviewerState) -> dict:
-    llm = get_llm(temperature=0.3)
-    prompt = REVIEWER_USER.format(
-        idea=state["idea"],
-        budget=state["budget"],
-        team_size=state["team_size"],
-        timeline=state["timeline"],
-        architecture_output=state.get("architecture_output", {}),
-        engineering_output=state.get("engineering_output", {}),
-    )
+def review_agent_output(
+    idea: str,
+    agent_name: str,
+    agent_output: str,
+    context: dict,
+) -> dict:
+    llm = get_llm(temperature=0.2)
+    prompt = build_review_prompt(idea, agent_name, agent_output, context)
     response = llm.invoke([
         {"role": "system", "content": REVIEWER_SYSTEM},
         HumanMessage(content=prompt),
     ])
-    return {"reasoning": response.content}
+
+    text = response.content.strip().upper()
+    valid = "VALID" in text and "INVALID" not in text
+
+    reason = ""
+    if not valid:
+        lines = response.content.strip().split("\n")
+        for line in lines:
+            if line.strip().startswith("REASON:"):
+                reason = line.split(":", 1)[1].strip()
+                break
+        if not reason:
+            reason = "Output does not meet ground truth standards."
+
+    return {"valid": valid, "reason": reason}

@@ -4,7 +4,6 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-
 MOCK_INPUT = {
     "idea": "Build an Uber clone for grocery delivery",
     "budget": "₹10,00,000",

@@ -1,16 +1,22 @@
 """Tests for LangGraph graph compilation and execution."""
 
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
-from tests.mock_data import MOCK_RESPONSES
 from tests.conftest import MockLLMResponse
+from tests.mock_data import MOCK_RESPONSES
 
-
-MOCK_INPUT = {
-    "idea": "Build an Uber clone for grocery delivery",
-    "budget": "₹10,00,000",
-    "team_size": "5",
-    "timeline": "3 months",
+MOCK_CTO_INPUT = {
+    "product_name": "Uber Clone",
+    "product_type": "Mobile App",
+    "budget": 1000000,
+    "team_size": 5,
+    "timeline_months": 6,
+    "target_users": "Urban commuters",
+    "plan": "",
+    "feasibility_report": "",
+    "market_analysis": "",
+    "growth_strategy": "",
+    "hiring_plan": "",
 }
 
 
@@ -23,101 +29,83 @@ def _make_mock_llm(response_key: str):
 class TestGraphCompilation:
     def test_planner_graph_compiles(self):
         from app.agents.planner.graph import build_planner_graph
-        graph = build_planner_graph()
-        assert graph is not None
 
-    def test_product_graph_compiles(self):
-        from app.agents.product.graph import build_product_graph
-        graph = build_product_graph()
-        assert graph is not None
+        assert build_planner_graph() is not None
 
-    def test_architecture_graph_compiles(self):
-        from app.agents.architecture.graph import build_architecture_graph
-        graph = build_architecture_graph()
-        assert graph is not None
+    def test_feasibility_graph_compiles(self):
+        from app.agents.feasibility.graph import build_feasibility_graph
 
-    def test_engineering_graph_compiles(self):
-        from app.agents.engineering.graph import build_engineering_graph
-        graph = build_engineering_graph()
-        assert graph is not None
+        assert build_feasibility_graph() is not None
 
-    def test_reviewer_graph_compiles(self):
-        from app.agents.reviewer.graph import build_reviewer_graph
-        graph = build_reviewer_graph()
-        assert graph is not None
+    def test_market_graph_compiles(self):
+        from app.agents.market.graph import build_market_graph
+
+        assert build_market_graph() is not None
+
+    def test_growth_graph_compiles(self):
+        from app.agents.growth.graph import build_growth_graph
+
+        assert build_growth_graph() is not None
+
+    def test_hiring_graph_compiles(self):
+        from app.agents.hiring.graph import build_hiring_graph
+
+        assert build_hiring_graph() is not None
 
 
 class TestGraphExecution:
     def test_planner_graph_runs(self):
-        with patch("app.agents.planner.nodes.get_llm", return_value=_make_mock_llm("planner")):
+        with patch(
+            "app.agents.planner.nodes.get_llm",
+            return_value=_make_mock_llm("planner"),
+        ):
             from app.agents.planner.graph import build_planner_graph
+
             graph = build_planner_graph()
-            result = graph.invoke({
-                **MOCK_INPUT,
-                "plan": "",
-                "product_output": {},
-                "architecture_output": {},
-                "engineering_output": {},
-                "review_output": {},
-                "errors": [],
-            })
+            state = {**MOCK_CTO_INPUT, "plan": ""}
+            result = graph.invoke(state)
             assert "plan" in result
 
-    def test_product_graph_runs(self):
-        with patch("app.agents.product.nodes.get_llm", return_value=_make_mock_llm("product")):
-            from app.agents.product.graph import build_product_graph
-            graph = build_product_graph()
-            result = graph.invoke({
-                **MOCK_INPUT,
-                "target_users": [],
-                "core_features": [],
-                "user_flows": [],
-                "business_rules": [],
-                "mvp_scope": {},
-                "reasoning": "",
-            })
-            assert "reasoning" in result
+    def test_feasibility_graph_runs(self):
+        with patch(
+            "app.agents.feasibility.nodes.get_llm",
+            return_value=_make_mock_llm("feasibility"),
+        ):
+            from app.agents.feasibility.graph import build_feasibility_graph
 
-    def test_architecture_graph_runs(self):
-        with patch("app.agents.architecture.nodes.get_llm", return_value=_make_mock_llm("architecture")):
-            from app.agents.architecture.graph import build_architecture_graph
-            graph = build_architecture_graph()
-            result = graph.invoke({
-                **MOCK_INPUT,
-                "components": [],
-                "connections": [],
-                "tech_stack": [],
-                "infrastructure": {},
-                "reasoning": "",
-            })
-            assert "reasoning" in result
+            graph = build_feasibility_graph()
+            result = graph.invoke(MOCK_CTO_INPUT)
+            assert "feasibility_report" in result
 
-    def test_engineering_graph_runs(self):
-        with patch("app.agents.engineering.nodes.get_llm", return_value=_make_mock_llm("engineering")):
-            from app.agents.engineering.graph import build_engineering_graph
-            graph = build_engineering_graph()
-            result = graph.invoke({
-                **MOCK_INPUT,
-                "database": {},
-                "api": {},
-                "sprints": {},
-                "hiring": {},
-                "reasoning": "",
-            })
-            assert "reasoning" in result
+    def test_market_graph_runs(self):
+        with patch(
+            "app.agents.market.nodes.get_llm",
+            return_value=_make_mock_llm("market"),
+        ):
+            from app.agents.market.graph import build_market_graph
 
-    def test_reviewer_graph_runs(self):
-        with patch("app.agents.reviewer.nodes.get_llm", return_value=_make_mock_llm("reviewer")):
-            from app.agents.reviewer.graph import build_reviewer_graph
-            graph = build_reviewer_graph()
-            result = graph.invoke({
-                **MOCK_INPUT,
-                "architecture_output": {},
-                "engineering_output": {},
-                "feasibility_score": 0,
-                "risks": [],
-                "recommendations": [],
-                "verdict": "",
-                "reasoning": "",
-            })
-            assert "reasoning" in result
+            graph = build_market_graph()
+            result = graph.invoke(MOCK_CTO_INPUT)
+            assert "market_analysis" in result
+
+    def test_growth_graph_runs(self):
+        with patch(
+            "app.agents.growth.nodes.get_llm",
+            return_value=_make_mock_llm("growth"),
+        ):
+            from app.agents.growth.graph import build_growth_graph
+
+            graph = build_growth_graph()
+            result = graph.invoke(MOCK_CTO_INPUT)
+            assert "growth_strategy" in result
+
+    def test_hiring_graph_runs(self):
+        with patch(
+            "app.agents.hiring.nodes.get_llm",
+            return_value=_make_mock_llm("hiring"),
+        ):
+            from app.agents.hiring.graph import build_hiring_graph
+
+            graph = build_hiring_graph()
+            result = graph.invoke(MOCK_CTO_INPUT)
+            assert "hiring_plan" in result

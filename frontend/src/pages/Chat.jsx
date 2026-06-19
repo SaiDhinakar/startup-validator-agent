@@ -1,43 +1,33 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import InputArea from "../components/InputArea";
 import AgentProgress from "../components/AgentProgress";
 import ReportView from "../components/ReportView";
+import LinksPanel from "../components/LinksPanel";
 
-export default function Chat({ strategy, onSubmit }) {
-  const [isRunning, setIsRunning] = useState(false);
-  const [showReport, setShowReport] = useState(false);
+export default function Chat({ strategy, agentStatus, selectedAgents, onSubmit }) {
   const chatEndRef = useRef(null);
-
-  useEffect(() => {
-    if (strategy) {
-      setShowReport(true);
-      setIsRunning(false);
-    }
-  }, [strategy]);
+  const hasStarted = agentStatus !== null;
+  const allDone = hasStarted && Object.keys(agentStatus).length > 0 && Object.values(agentStatus).every((v) => (typeof v === "object" ? v?.state : v) === "done");
+  const isViewingHistory = !hasStarted && strategy;
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [showReport, isRunning]);
-
-  const handleSubmit = (data) => {
-    setIsRunning(true);
-    setShowReport(false);
-    onSubmit(data);
-  };
-
-  const handleAgentComplete = () => {
-    setIsRunning(false);
-    setShowReport(true);
-  };
+  }, [hasStarted, allDone]);
 
   return (
     <div className="flex h-full">
-      {/* Left: Chat area */}
       <div className="flex-1 flex flex-col h-full overflow-y-auto">
         <div className="flex-1 p-6 md:p-8">
-          {showReport && strategy ? (
-            <ReportView report={strategy.report} idea={strategy.idea} />
-          ) : isRunning ? (
+          {(allDone || isViewingHistory) && strategy ? (
+            <ReportView
+              agents={strategy.agents || { planner: strategy.report || "" }}
+              idea={strategy.idea}
+              selectedAgents={strategy.selected_agents || selectedAgents}
+              productType={strategy.product_type}
+              timelineMonths={strategy.timeline_months}
+              targetUsers={strategy.target_users}
+            />
+          ) : hasStarted ? (
             <div className="flex items-center justify-center h-full">
               <div className="text-center">
                 <div className="w-12 h-12 bg-[#f4f4f5] rounded-xl flex items-center justify-center mx-auto mb-4">
@@ -50,18 +40,19 @@ export default function Chat({ strategy, onSubmit }) {
             </div>
           ) : (
             <div className="flex items-end justify-center h-full pb-8">
-              <InputArea onSubmit={handleSubmit} disabled={isRunning} />
+              <InputArea onSubmit={onSubmit} disabled={false} />
             </div>
           )}
           <div ref={chatEndRef} />
         </div>
       </div>
 
-      {/* Right: Agent progress */}
       <div className="w-80 border-l border-[var(--color-border)] bg-[var(--color-background)] p-4 overflow-y-auto flex-shrink-0">
-        <AgentProgress isRunning={isRunning} onComplete={handleAgentComplete} />
-
-        {!isRunning && !showReport && (
+        <AgentProgress agentStatus={agentStatus} selectedAgents={selectedAgents} />
+        {(allDone || isViewingHistory) && strategy && (
+          <LinksPanel agents={strategy.agents} />
+        )}
+        {!hasStarted && !isViewingHistory && (
           <div className="mt-4 p-4 bg-white border border-[var(--color-border)] rounded-xl">
             <h3 className="text-sm font-semibold text-[var(--color-foreground)] mb-2">
               Agent Pipeline
@@ -72,10 +63,7 @@ export default function Chat({ strategy, onSubmit }) {
             <ul className="mt-2 space-y-1">
               {["Planner", "Feasibility", "Market", "Growth", "Hiring"].map(
                 (name) => (
-                  <li
-                    key={name}
-                    className="text-xs text-[var(--color-muted)] flex items-center gap-1.5"
-                  >
+                  <li key={name} className="text-xs text-[var(--color-muted)] flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-[#d4d4d8] rounded-full" />
                     {name}
                   </li>

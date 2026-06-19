@@ -1,4 +1,4 @@
-"""Generate visual graphs of all agent workflows.
+"""Generate visual graphs of agent workflows.
 
 Outputs mermaid diagrams to stdout and optionally writes an HTML viewer.
 
@@ -10,45 +10,41 @@ Usage:
 import sys
 from pathlib import Path
 
-# Add project root to path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from app.agents.planner.graph import build_planner_graph
-from app.agents.product.graph import build_product_graph
-from app.agents.architecture.graph import build_architecture_graph
-from app.agents.engineering.graph import build_engineering_graph
-from app.agents.reviewer.graph import build_reviewer_graph
+from app.agents.feasibility.graph import build_feasibility_graph
+from app.agents.market.graph import build_market_graph
+from app.agents.growth.graph import build_growth_graph
+from app.agents.hiring.graph import build_hiring_graph
 
 
 AGENTS = {
     "Planner": build_planner_graph,
-    "Product": build_product_graph,
-    "Architecture": build_architecture_graph,
-    "Engineering": build_engineering_graph,
-    "Reviewer": build_reviewer_graph,
+    "Feasibility": build_feasibility_graph,
+    "Market": build_market_graph,
+    "Growth": build_growth_graph,
+    "Hiring": build_hiring_graph,
 }
 
 DESCRIPTIONS = {
     "Planner": "Analyzes requirements and orchestrates the agent workflow",
-    "Product": "Extracts business requirements and core features",
-    "Architecture": "Designs technical stack and system components",
-    "Engineering": "Generates DB schemas, APIs, and sprint roadmaps",
-    "Reviewer": "Evaluates feasibility, scalability, and constraints",
+    "Feasibility": "Analyzes budget, timeline, and team feasibility",
+    "Market": "Analyzes market opportunity and go-to-market strategy",
+    "Growth": "Generates user acquisition and retention strategies",
+    "Hiring": "Generates team structure and hiring plans",
 }
 
 
 def get_mermaid(graph_builder, name: str) -> str:
-    """Extract mermaid syntax from a compiled LangGraph."""
     compiled = graph_builder()
     try:
         return compiled.get_graph().draw_mermaid()
     except Exception:
-        # Fallback: manual mermaid generation
         return _manual_mermaid(graph_builder, name)
 
 
 def _manual_mermaid(graph_builder, name: str) -> str:
-    """Fallback mermaid generation from graph structure."""
     compiled = graph_builder()
     graph = compiled.get_graph()
     lines = ["graph TD"]
@@ -70,7 +66,6 @@ def _manual_mermaid(graph_builder, name: str) -> str:
 
 
 def print_mermaid():
-    """Print mermaid diagrams for all agents."""
     for name, builder in AGENTS.items():
         print(f"## {name} Agent")
         print(f"<!-- {DESCRIPTIONS[name]} -->")
@@ -79,7 +74,6 @@ def print_mermaid():
 
 
 def generate_html():
-    """Generate an HTML viewer with all agent graphs."""
     diagrams = {}
     for name, builder in AGENTS.items():
         diagrams[name] = {
