@@ -1,0 +1,33 @@
+{
+  "query": "GPU server leasing cost India per month RTX 3090 2026",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:16:15.458364",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Vast.ai: Rent GPUs",
+      "url": "https://vast.ai/?srsltid=AfmBOorB3GxZ9ZmwGCtSlBqhMaIGC2QNdKLL4QpXDrYGi-FhjwjMYRDu",
+      "snippet": "Rent high-performance cloud GPUs at low cost with Vast.ai. Instantly deploy GPU rentals for AI, machine learning, deep learning, and rendering. Flexible pricing"
+    },
+    {
+      "title": "Salad GPU Cloud Pricing | Rent GPUs from $0.02/hr",
+      "url": "https://salad.com/pricing",
+      "snippet": "RTX 3000 Series Cards \u00b7 RTX 3090 Ti (24 GB) $0.10 per hour \u00b7 RTX 3090 (24 GB) $0.09 per hour \u00b7 RTX 3080 Ti (12 GB) $0.08 per hour \u00b7 RTX 3080 (10 GB) $0.06 per hour"
+    },
+    {
+      "title": "GPU Rental Servers for ML, AI, and high-speed Computing - HOSTKEY",
+      "url": "https://hostkey.com/gpu-dedicated-servers/gpu-rental/",
+      "snippet": "HOSTKEY offers GPU rental servers for ML, AI, and high-speed computing with NVIDIA and AMD GPUs, hourly billing, long-term rental discounts, scalable resources, ..."
+    },
+    {
+      "title": "Best Cloud GPU Providers for AI in 2026 - Jarvis Labs",
+      "url": "https://jarvislabs.ai/ai-faqs/best-cloud-gpu-providers-2026",
+      "snippet": "11 GPU types from RTX 3090 ($0.29/hr) to H200 ($3.80/hr); India and Europe regions with local pricing. Limitations: Single-node only (up to 8 GPUs) \u2014 no multi- ..."
+    },
+    {
+      "title": "Top 12 Cloud GPU Providers for AI and Machine Learning in 2026",
+      "url": "https://www.runpod.io/articles/guides/top-cloud-gpu-providers",
+      "snippet": "9 Jan 2026 \u00b7 For instance, renting a high-end GPU on TensorDock might cost only a few dollars per hour when the cloud price is in the double digits. This ..."
+    }
+  ]
+}

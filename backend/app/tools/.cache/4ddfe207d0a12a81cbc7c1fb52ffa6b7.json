@@ -1,0 +1,33 @@
+{
+  "query": "Google Cloud GPU India pricing A100 hourly",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:32:28.377596",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Cloud GPU Pricing Comparison India [2026]: A100, H200 & More",
+      "url": "https://acecloud.ai/blog/cloud-gpu-pricing-comparison/",
+      "snippet": "March 11, 2026 - Hence, we have compared cloud GPU providers in India (INR) like AceCloud, AWS, Google Cloud, Microsoft Azure, DigitalOcean and E2E Networks. Our aim is practical, not theoretical. We want you to match workloads to GPU classes (H100/A100/L40S/L4/A30/RTX) and understand the budget impact of hourly ..."
+    },
+    {
+      "title": "VM instance pricing | Google Cloud",
+      "url": "https://cloud.google.com/compute/gpus-pricing",
+      "snippet": "Your commitment becomes active within the first hour of its purchase. This discounted committed spend amount becomes your hourly commitment fee. In return, you receive hourly credits on your Cloud Billing account that are worth your total committed spend amount."
+    },
+    {
+      "title": "GPU Cloud Pricing 2026: H100 from $1.03/hr, B200 from $2.12/hr (15+ providers) | Spheron Blog",
+      "url": "https://www.spheron.network/blog/gpu-cloud-pricing-comparison-2026/",
+      "snippet": "May 14, 2026 - On spot, B200 at $2.12/hr would yield roughly $0.15/M tokens, making it the cost leader for checkpoint-friendly workloads. The A100 at on-demand $0.57/M is a solid mid-range option."
+    },
+    {
+      "title": "GPU Cloud Providers in India | Gpu | Cloud Computing Dictionary | E2E Networks",
+      "url": "https://www.e2enetworks.com/cloud-terms/gpu/gpu-cloud-india",
+      "snippet": "GPU cloud pricing varies by hardware and provider. Entry-level L4 instances start around \u20b950-80 per hour, mid-range A100 40GB costs \u20b9180-250 per hour, and high-end H100 GPUs run \u20b9350-500 per hour. Spot instances and reserved capacity offer 30-70% discounts."
+    },
+    {
+      "title": "H100 GPU Pricing in India | Gpu | Cloud Computing Dictionary | E2E Networks",
+      "url": "https://www.e2enetworks.com/cloud-terms/gpu/h100-pricing-india",
+      "snippet": "CPU-bound or I/O-bound workloads won't benefit from H100's compute advantage, making A100 the better value. Compute-intensive training workloads usually justify H100's premium pricing. H100 GPU cloud pricing in India ranges from \u20b9350-400/hour for on-demand access through providers like E2E ..."
+    }
+  ]
+}

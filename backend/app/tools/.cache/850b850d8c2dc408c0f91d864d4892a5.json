@@ -1,0 +1,33 @@
+{
+  "query": "average customer acquisition cost SaaS 2025 $",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:36:38.872587",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "B2B SaaS Customer Acquisition Cost: 2025 Report - First Page Sage",
+      "url": "https://firstpagesage.com/reports/b2b-saas-customer-acquisition-cost-2024-report/",
+      "snippet": "31 May 2024 \u00b7 Average B2B SaaS CAC by Industry and Customer Size ; Retail, $304, $3,010, $9,045 ; Security, $833, $5,330, $10,226."
+    },
+    {
+      "title": "Average Customer Acquisition Cost (CAC) Industry Benchmarks (2026)",
+      "url": "https://userpilot.com/blog/average-customer-acquisition-cost/",
+      "snippet": "20 Apr 2026 \u00b7 What is the average CAC for SaaS? \u00b7 SaaS CAC typically ranges between $400 and $900: This range covers most B2B SaaS industries and serves as a ..."
+    },
+    {
+      "title": "Customer Acquisition Cost (CAC): Formula, Benchmarks & Tips [2026]",
+      "url": "https://www.factors.ai/blog/customer-acquisition-cost",
+      "snippet": "SMB SaaS: $200 \u2013 $600 per customer; Mid-market B2B SaaS: $600 \u2013 $1,200 per customer; Enterprise SaaS: $1,200 \u2013 $5,000+ per customer. These ranges scale with ..."
+    },
+    {
+      "title": "CAC SaaS: A guide for businesses - Stripe",
+      "url": "https://stripe.com/resources/more/cac-in-saas",
+      "snippet": "30 Jul 2025 \u00b7 Learn more about CAC for SaaS businesses, including how to calculate, benchmark, and improve customer acquisition cost."
+    },
+    {
+      "title": "SaaS Customer Acquisition Strategy: Proven Methods & CAC Benchmarks",
+      "url": "https://www.reddit.com/r/SaaS/comments/1l4syor/saas_customer_acquisition_strategy_proven_methods/",
+      "snippet": "6 Jun 2025 \u00b7 Customer Acquisition Cost, or CAC, measures how much it costs to win each new customer. You calculate it by dividing your total sales and ..."
+    }
+  ]
+}

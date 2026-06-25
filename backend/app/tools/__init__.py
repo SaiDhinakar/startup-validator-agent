@@ -9,3 +9,4 @@ from app.tools.trends import format_trends_results as format_trends_results
 from app.tools.langchain_tools import search_web as search_web
 from app.tools.langchain_tools import search_reddit as search_reddit
 from app.tools.langchain_tools import search_trends as search_trends
+from app.tools.search_cache import get_cached_results, cache_results, clear_expired_cache, get_cache_stats

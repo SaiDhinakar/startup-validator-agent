@@ -1,0 +1,33 @@
+{
+  "query": "GPU cloud pricing India region AWS p3 instance price INR",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:32:17.864723",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "AWS Pricing Calculator",
+      "url": "https://calculator.aws/",
+      "snippet": "AWS Pricing Calculator lets you explore AWS services, and create an estimate for the cost of your use cases on AWS."
+    },
+    {
+      "title": "AWS EC2 Pricing Calculator \u2014 On-Demand, Reserved, Savings Plans & Spot",
+      "url": "https://ec2calc.cloud/",
+      "snippet": "Compare AWS EC2 instance prices in real time. On-demand, 1-year & 3-year reserved instances, savings plans (No/Partial/All Upfront), and spot pricing across all AWS regions. Find the cheapest option for your workload in seconds."
+    },
+    {
+      "title": "Cloud GPU Pricing Comparison India [2026]: A100, H200 & More",
+      "url": "https://acecloud.ai/blog/cloud-gpu-pricing-comparison/",
+      "snippet": "The goal is predictable performance with transparent INR pricing so teams can budget experiments and production runs without surprises. * You can avail these instances at hourly rates if your billing reaches 200+ hours. Connect with AceCloud's Cloud GPU consultant using free consultation to learn more. Amazon AWS (Hourly Pricing)"
+    },
+    {
+      "title": "EC2 On-Demand Instance Pricing - aws.amazon.com",
+      "url": "https://aws.amazon.com/ec2/pricing/on-demand/",
+      "snippet": "Notice: Red Hat has made an update to their cloud pricing model for Red Hat Enterprise Linux (RHEL). On July 1, 2024 pricing for EC2 RHEL changed to a per-vCPU-hour based pricing model. Learn about the new prices in the RHEL on AWS Pricing page."
+    },
+    {
+      "title": "EC2 Instance Comparison - 1000+ AWS Instance Types & Pricing",
+      "url": "https://cloudprice.net/aws/ec2",
+      "snippet": "Find the most cost-effective Amazon EC2 instance for your workload. Compare all instance types with real-time spot, reserved, and on-demand pricing across all AWS regions."
+    }
+  ]
+}

@@ -18,6 +18,10 @@ MOCK_CTO_INPUT = {
 def _make_mock_llm(response_key: str):
     mock_llm = MagicMock()
     mock_llm.invoke.return_value = MockLLMResponse(MOCK_RESPONSES[response_key])
+    # Make bind_tools return a mock that also has the invoke method
+    bound_mock = MagicMock()
+    bound_mock.invoke.return_value = MockLLMResponse(MOCK_RESPONSES[response_key])
+    mock_llm.bind_tools.return_value = bound_mock
     return mock_llm
 
 
@@ -43,9 +47,12 @@ class TestPlannerAgent:
 
             state = {**MOCK_CTO_INPUT, "plan": ""}
             plan_node(state)
-            call_args = mock_llm.invoke.call_args[0][0]
-            user_msg = [m for m in call_args if hasattr(m, "content")][0]
-            assert "Uber Clone" in user_msg.content
+            call_args = mock_llm.bind_tools.return_value.invoke.call_args[0][0]
+            # Find the HumanMessage (user message) in the list
+            from langchain_core.messages import HumanMessage
+            user_msgs = [m for m in call_args if isinstance(m, HumanMessage)]
+            assert len(user_msgs) > 0, "No HumanMessage found in call args"
+            assert "Uber Clone" in user_msgs[-1].content
 
 
 class TestReviewerAgent:

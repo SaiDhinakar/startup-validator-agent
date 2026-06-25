@@ -1,0 +1,33 @@
+{
+  "query": "GPU cloud pricing India 2026 AWS Azure GCP H100 hourly rate INR",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:16:50.295337",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "GPU Cloud Pricing: India vs Global Providers \u2014 Full Cost ...",
+      "url": "https://cyfuture.ai/blog/gpu-cloud-pricing-in-india-vs-global-providers",
+      "snippet": "Apr 7, 2026 \u00b7 Compare GPU cloud pricing in India vs AWS, GCP & Azure. H100 from \u20b9219/hr, A100 from \u20b9195/hr. See real cost tables, hidden fees & why Indian providers are 60\u201370% cheaper."
+    },
+    {
+      "title": "GPU Cloud Providers in India 2026: H100, H200, and B200 ...",
+      "url": "https://www.spheron.network/blog/gpu-cloud-india-2026/",
+      "snippet": "May 23, 2026 \u00b7 This guide covers the GPU cloud options available to teams in India in 2026: domestic providers with INR billing, global neoclouds accessible from India, DPDP Act compliance context, and a practical buying guide covering GST, RBI LRS payments, and spot vs on-demand decisions."
+    },
+    {
+      "title": "Cloud GPU Pricing Comparison: AWS Vs. Azure Vs. GCP For AI",
+      "url": "https://www.cloudzero.com/blog/cloud-gpu-pricing-comparison/",
+      "snippet": "Apr 17, 2026 \u00b7 As of 2026, H100 GPU cost per hour differs by platform and configuration. AWS reduced pricing in 2025, bringing its rates closer to Google Cloud. Google Cloud is often among the more cost-effective options for on-demand usage, while Azure can be higher depending on the instance."
+    },
+    {
+      "title": "Cloud GPU Pricing Comparison India [2026]: A100, H200 & More",
+      "url": "https://acecloud.ai/blog/cloud-gpu-pricing-comparison/",
+      "snippet": "Mar 11, 2026 \u00b7 Compare cloud GPU pricing in India across AWS, Azure, GCP, Digitalocean, & E2E. Find hourly & monthly rates for H200, A100, L40S, L4 & more"
+    },
+    {
+      "title": "Cloud GPU Pricing Comparison 2026 - Cantech",
+      "url": "https://www.cantech.in/blog/cloud-gpu-pricing-comparison/",
+      "snippet": "Jun 10, 2026 \u00b7 Compare cloud GPU pricing across AWS, Azure, GCP, CoreWeave, Lambda & more. See real per-GPU costs, hidden fees, and best-value providers."
+    }
+  ]
+}

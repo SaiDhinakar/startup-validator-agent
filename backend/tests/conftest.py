@@ -15,6 +15,7 @@ MOCK_INPUT = {
 class MockLLMResponse:
     def __init__(self, content: str):
         self.content = content
+        self.tool_calls = []
 
 
 @pytest.fixture

@@ -24,6 +24,7 @@ export function generateCTOStream(strategyId, callbacks) {
   const {
     onAgentStart,
     onAgentDone,
+    onAgentResult,
     onToolStart,
     onToolDone,
     onReviewStart,
@@ -91,11 +92,12 @@ export function generateCTOStream(strategyId, callbacks) {
     switch (type) {
       case "agent_start": onAgentStart?.(data.agent); break;
       case "agent_done": onAgentDone?.(data.agent); break;
+      case "agent_result": onAgentResult?.(data.agent, data.output); break;
       case "tool_start": onToolStart?.(data.agent, data.tool, data.query); break;
       case "tool_done": onToolDone?.(data.agent, data.tool); break;
       case "review_start": onReviewStart?.(data.agent); break;
-      case "review_done": onReviewDone?.(data.agent, data.valid); break;
-      case "agent_retry": onAgentRetry?.(data.agent, data.attempt); break;
+      case "review_done": onReviewDone?.(data.agent, data.valid, data.reason); break;
+      case "agent_retry": onAgentRetry?.(data.agent, data.attempt, data.reason); break;
       case "agent_skipped": onAgentSkipped?.(data.agent, data.reason); break;
       case "agents_selected": onAgentsSelected?.(data.agents); break;
       case "done": onDone?.(data); break;

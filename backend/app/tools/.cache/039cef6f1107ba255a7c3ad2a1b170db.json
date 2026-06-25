@@ -1,0 +1,33 @@
+{
+  "query": "Indian GPU cloud provider A100 hourly price India",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:33:56.477919",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Cloud GPU Pricing Comparison India [2026]: A100, H200 & More",
+      "url": "https://acecloud.ai/blog/cloud-gpu-pricing-comparison/",
+      "snippet": "Choose H100 for cutting-edge training, A100 for large multi-GPU workloads and L4 for cost-efficient inference or graphics. Management is via familiar AWS tooling. Google GCP (Hourly Pricing) Google Cloud GPU services provide on-demand accelerators for training, inference and visualization across Vertex AI, GKE and Compute Engine, with flexible pricing, autoscaling and Spot options."
+    },
+    {
+      "title": "NVIDIA A100 GPU Price in India: Cloud (\u20b9170/hr) vs Purchase Guide (2025)",
+      "url": "https://www.e2enetworks.com/blog/nvidia-a100-price-india",
+      "snippet": "Complete A100 GPU pricing: \u20b9170-220/hr cloud vs \u20b97-11.5L purchase. Compare 40GB/80GB variants, A100 vs H100, break-even analysis & India-specific costs. E2E Networks guide."
+    },
+    {
+      "title": "A100 GPU Cloud India | Gpu | Cloud Computing Dictionary | E2E Networks",
+      "url": "https://www.e2enetworks.com/cloud-terms/gpu/a100-cloud-india",
+      "snippet": "Complete guide to NVIDIA A100 GPU cloud services in India, covering providers, pricing, performance benchmarks, and use cases for AI/ML workloads."
+    },
+    {
+      "title": "GPU Cloud India \u2014 Rent GPUs from \u20b941.31/hr - JarvisLabs",
+      "url": "https://jarvislabs.ai/in",
+      "snippet": "Rent cloud GPUs in India from \u20b941.31/hr. NVIDIA H200, H100, A100, A6000 with INR pricing, instant provisioning, and minute-level billing."
+    },
+    {
+      "title": "Rent NVIDIA A100 Cloud GPUs (40/80GB) with Neevcloud | Best Price in India",
+      "url": "https://www.neevcloud.com/nvidia-a100.php",
+      "snippet": "Deploy NVIDIA A100 GPU cloud with NeevCloud. Reserve your A100 GPU for AI and ML projects at competitive rental pricing. Experience the power of the NVIDIA A100 Tensor Core GPU, available in 40GB and 80GB memory options at the best price ($1.32/GPU per hour) in India"
+    }
+  ]
+}

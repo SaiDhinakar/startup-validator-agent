@@ -1,0 +1,33 @@
+{
+  "query": "Runpod GPU cloud startup budget 2024",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:19:04.293165",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "GPU Cloud Pricing | Per-Second H100, A100, RTX | Runpod",
+      "url": "https://www.runpod.io/pricing",
+      "snippet": "April 7, 2026 - GPU cloud computing at up to 80% less than hyperscalers. Explore pricing for on-demand Pods, Serverless, Clusters, and Network Storage."
+    },
+    {
+      "title": "Runpod GPU Pricing & Review - Cloud GPU Provider Analysis",
+      "url": "https://gpus.io/en/providers/runpod",
+      "snippet": "6 days ago - Runpod GPU pricing starts at $0.24 per GPU-hour, with an average of $1.39 across its on-demand configurations."
+    },
+    {
+      "title": "Runpod GPU pricing: A complete breakdown and platform comparison | Blog \u2014 Northflank",
+      "url": "https://northflank.com/blog/runpod-gpu-pricing",
+      "snippet": "Secure Cloud adds $0.10-$0.40/hr per GPU for SOC2 compliance, dedicated resources, and enhanced support. ... Runpod operates on a marketplace model where prices reflect availability."
+    },
+    {
+      "title": "The AI Developer Cloud | Runpod",
+      "url": "https://www.runpod.io/",
+      "snippet": "AI infrastructure with on-demand GPUs and serverless compute. Run training, inference, and batch workloads on the cloud with Runpod."
+    },
+    {
+      "title": "Cloud GPU Pricing: Why Your AI Bills Are Crushing ...",
+      "url": "https://www.runpod.io/articles/guides/cloud-gpu-pricing",
+      "snippet": "November 6, 2025 - With budget-friendly options starting at just $0.04/hour for basic GPUs GetDeploying, while premium instances can cost hundreds of dollars per hour, figuring out this pricing maze has become a survival skill for teams building AI apps."
+    }
+  ]
+}

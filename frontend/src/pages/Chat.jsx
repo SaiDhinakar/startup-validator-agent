@@ -9,16 +9,17 @@ export default function Chat({ strategy, agentStatus, selectedAgents, onSubmit }
   const hasStarted = agentStatus !== null;
   const allDone = hasStarted && Object.keys(agentStatus).length > 0 && Object.values(agentStatus).every((v) => (typeof v === "object" ? v?.state : v) === "done");
   const isViewingHistory = !hasStarted && strategy;
+  const hasAnyContent = strategy?.agents && Object.values(strategy.agents).some((v) => v);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [hasStarted, allDone]);
+  }, [hasStarted, allDone, hasAnyContent]);
 
   return (
     <div className="flex h-full">
       <div className="flex-1 flex flex-col h-full overflow-y-auto">
         <div className="flex-1 p-6 md:p-8">
-          {(allDone || isViewingHistory) && strategy ? (
+          {(hasAnyContent || allDone || isViewingHistory) && strategy ? (
             <ReportView
               agents={strategy.agents || { planner: strategy.report || "" }}
               idea={strategy.idea}
@@ -49,7 +50,7 @@ export default function Chat({ strategy, agentStatus, selectedAgents, onSubmit }
 
       <div className="w-80 border-l border-[var(--color-border)] bg-[var(--color-background)] p-4 overflow-y-auto flex-shrink-0">
         <AgentProgress agentStatus={agentStatus} selectedAgents={selectedAgents} />
-        {(allDone || isViewingHistory) && strategy && (
+        {(hasAnyContent || allDone || isViewingHistory) && strategy && (
           <LinksPanel agents={strategy.agents} />
         )}
         {!hasStarted && !isViewingHistory && (

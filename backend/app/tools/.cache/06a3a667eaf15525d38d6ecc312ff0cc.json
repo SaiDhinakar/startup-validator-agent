@@ -1,0 +1,33 @@
+{
+  "query": "Indian GPU cloud providers competitors LLM inference India market size AI cloud services India 2024",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:34:35.778816",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Generative AI Server Market Size, Share and Trends",
+      "url": "https://www.marketsandmarkets.com/Market-Reports/generative-ai-server-market-242200223.html",
+      "snippet": "Generative AI Server Market to reach USD 448.6 billion by 2030 at a 34.0% CAGR, fueled by LLM training, AI inference, GPUs, and hyperscale cloud expansion."
+    },
+    {
+      "title": "Top 12 Cloud GPU Providers for AI and Machine Learning in 2026",
+      "url": "https://www.runpod.io/articles/guides/top-cloud-gpu-providers",
+      "snippet": "9 Jan 2026 \u00b7 This side-by-side comparison breaks down 12 top cloud GPU providers, highlighting key hardware, pricing structures, and standout features."
+    },
+    {
+      "title": "India Data Center GPU Market Size, Share | Indutry Report by 2032",
+      "url": "https://www.marknteladvisors.com/research-library/data-center-gpu-market-india.html",
+      "snippet": "India Data Center GPU Market size is valued at around USD 0.17 billion in 2025 and is projected to reach USD 5.29 billion by 2032."
+    },
+    {
+      "title": "Cloud AI Market Size, Share & Trends Report, 2026-2033",
+      "url": "https://www.grandviewresearch.com/industry-analysis/cloud-ai-market-report",
+      "snippet": "The cloud AI market size was valued at $121.7 billion in 2025, projected to grow from $169.9 billion in 2026 to $1728.4 billion by 2033, at a CAGR of 39.3%"
+    },
+    {
+      "title": "E2E Networks is an Indian cloud company making waves in AI. It has ...",
+      "url": "https://www.facebook.com/indmoney/posts/e2e-networks-is-an-indian-cloud-company-making-waves-in-ai-it-has-ties-with-nvid/1269857141806394/",
+      "snippet": "10 May 2025 \u00b7 \u2713 Nvidia is supporting Indian data centers with advanced GPU clusters for AI workloads. \u2713 Google plans a major AI and data centre hub in ..."
+    }
+  ]
+}

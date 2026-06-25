@@ -129,24 +129,34 @@ function App() {
               [agent]: { state: "reviewing", detail: "validating output..." },
             }));
           },
-          onReviewDone: (agent, valid) => {
+          onReviewDone: (agent, valid, reason) => {
             if (!valid) {
               setAgentStatus((prev) => ({
                 ...prev,
-                [agent]: { state: "running", detail: "retrying..." },
+                [agent]: { state: "running", detail: reason ? `failed: ${reason.slice(0, 120)}${reason.length > 120 ? '...' : ''}` : "retrying..." },
               }));
             }
           },
-          onAgentRetry: (agent, attempt) => {
+          onAgentRetry: (agent, attempt, reason) => {
             setAgentStatus((prev) => ({
               ...prev,
-              [agent]: { state: "retrying", detail: `attempt ${attempt}...` },
+              [agent]: { state: "retrying", detail: `attempt ${attempt}: ${reason ? reason.slice(0, 100) : "retrying..."}` },
             }));
           },
           onAgentSkipped: (agent, reason) => {
             setAgentStatus((prev) => ({
               ...prev,
               [agent]: { state: "skipped", detail: reason },
+            }));
+          },
+          onAgentResult: (agent, output) => {
+            const agentKey = agent === "planner" ? "planner" : agent;
+            setHistory((prev) => prev.map((s) => {
+              if (s.id !== strategy.id) return s;
+              return {
+                ...s,
+                agents: { ...s.agents, [agentKey]: output },
+              };
             }));
           },
           onAgentDone: (agent) => {

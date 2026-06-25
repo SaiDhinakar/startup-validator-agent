@@ -1,0 +1,33 @@
+{
+  "query": "Indian GPU cloud startup AI inference local cloud provider",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:14:49.271888",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Yotta Shakti Cloud: Cloud Based GPU Computing | AI Cloud ...",
+      "url": "https://shakticloud.ai/",
+      "snippet": "From AI Labs to Serverless GPUs, Shakti Cloud delivers end-to-end AI development and deployment capabilities. Built and hosted entirely in India for complete data residency and compliance with local regulations."
+    },
+    {
+      "title": "Best Cloud GPU Providers In India (2026)",
+      "url": "https://acecloud.ai/blog/best-cloud-gpu-providers-in-india-for-startups/",
+      "snippet": "March 9, 2026 - Production inference with strong governance and service integrations \u00b7 Platform teams that standardize on AWS primitives and tooling \u00b7 Workloads that need flexible cost control through Spot plus checkpointing \u00b7 E2E Networks positions itself ..."
+    },
+    {
+      "title": "Cloud GPU \u2013 Cloud instances for AI | OVHcloud India",
+      "url": "https://www.ovhcloud.com/en-in/public-cloud/gpu/",
+      "snippet": "OVHcloud and NVIDIA jointly deliver tailored services for deep learning, inference and high-performance computing, with the best available GPUs. AI models are becoming more complex due to the rise of conversational AI."
+    },
+    {
+      "title": "Top GPU Cloud Providers in India for AI Workloads | Neysa",
+      "url": "https://neysa.ai/blog/top-10-gpu-cloud-providers-in-india/",
+      "snippet": "April 30, 2026 - High-Speed Data Processing: Supports LLM training, Stable Diffusion, and AI inference. NVLink Support: Faster GPU-to-GPU communication for multi-GPU parallel processing. Flexible Pricing Models: Offers hourly, daily, and long-term GPU rental options. ... AI Startups & Research Institutions \u2013 Training models like GPT, Llama, and Stable Diffusion."
+    },
+    {
+      "title": "AI Infrastructure in India | Gpu | Cloud Computing Dictionary | E2E Networks",
+      "url": "https://www.e2enetworks.com/cloud-terms/gpu/ai-infrastructure-india",
+      "snippet": "Beyond raw compute, comprehensive tooling supports AI development: MLOps platforms help organizations manage the full model lifecycle from training to deployment. Indian startups like TrueFoundry and TensorOpera provide India-focused MLOps solutions integrated with local GPU providers."
+    }
+  ]
+}

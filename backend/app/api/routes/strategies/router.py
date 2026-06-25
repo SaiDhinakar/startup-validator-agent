@@ -2,6 +2,7 @@
 
 import asyncio
 import json
+import logging
 import queue
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -16,9 +17,11 @@ from app.api.routes.strategies.schemas import (
 )
 from app.db.repositories.strategy import StrategyRepository
 
+logger = logging.getLogger(__name__)
+
 router = APIRouter(prefix="/strategies", tags=["strategies"])
 
-MAX_RETRIES = 1
+MAX_RETRIES = 2
 
 REVIEW_TARGETS = {
     "planner": "plan",
@@ -36,6 +39,68 @@ SKIP_REASONS = {
     "hiring": "Hiring plan could not be validated. Requirements may not align with scope or budget.",
 }
 
+AGENT_LABELS = {
+    "planner": "Strategic Plan",
+    "feasibility": "Feasibility Analysis",
+    "market": "Market Analysis",
+    "growth": "Growth Strategy",
+    "hiring": "Hiring Plan",
+}
+
+
+def _combine_iterations(iterations: list[str]) -> str:
+    """Combine multiple agent iterations into a single human-friendly output."""
+    if not iterations:
+        return ""
+    if len(iterations) == 1:
+        return iterations[0]
+
+    combined_parts = []
+    for i, iteration in enumerate(iterations, 1):
+        if iteration.strip():
+            combined_parts.append(iteration.strip())
+
+    if not combined_parts:
+        return ""
+
+    if len(combined_parts) == 1:
+        return combined_parts[0]
+
+    # Combine with clear section markers
+    result_parts = []
+    for i, part in enumerate(combined_parts):
+        if i == 0:
+            result_parts.append(part)
+        else:
+            # Clean up the part - remove duplicate HTML headers if they exist
+            cleaned = part
+            if cleaned.startswith("<"):
+                result_parts.append(cleaned)
+            else:
+                result_parts.append(f"\n\n{cleaned}")
+
+    return "\n".join(result_parts)
+
+
+def _append_gap_analysis(output: str, agent_name: str, reason: str) -> str:
+    """Append a gap analysis section to the agent output when review fails."""
+    label = AGENT_LABELS.get(agent_name, agent_name.title())
+    gap_html = (
+        f'\n<div class="gap-analysis" style="margin-top:1.5rem;padding:1rem;'
+        f'background:#fef3c7;border-left:4px solid #f59e0b;border-radius:6px;">'
+        f'<h3 style="margin:0 0 0.5rem;color:#92400e;">'
+        f"Gap Analysis: {label}</h3>"
+        f'<p style="margin:0 0 0.5rem;color:#78350f;">'
+        f"The analysis above was produced but flagged for accuracy concerns. "
+        f"Below are the areas that need attention:</p>"
+        f'<p style="margin:0;color:#92400e;font-style:italic;">{reason}</p>'
+        f'<p style="margin:0.75rem 0 0;color:#78350f;font-size:0.875rem;">'
+        f"Review this output critically — it highlights potential weaknesses "
+        f"in your startup's {label.lower()} that should be addressed.</p>"
+        f"</div>"
+    )
+    return output + gap_html
+
 
 @router.post("", response_model=StrategyResponse, status_code=201)
 async def create_strategy(
@@ -43,6 +108,7 @@ async def create_strategy(
     repo: StrategyRepository = Depends(get_strategy_repo),
 ):
     doc = await repo.create(data.model_dump())
+    logger.info("Strategy created: %s (idea=%s)", doc.id, doc.idea[:80])
     return doc
 
 
@@ -92,6 +158,8 @@ async def generate_cto_strategy(
     if not doc:
         raise HTTPException(status_code=404, detail="Strategy not found")
 
+    logger.info("Generate CTO started for strategy %s (idea=%s)", strategy_id, doc.idea[:80])
+
     async def stream():
         from app.agents.planner.nodes import plan_node
         from app.agents.feasibility.nodes import feasibility_node
@@ -123,6 +191,7 @@ async def generate_cto_strategy(
         }
 
         # Phase 1: Run planner to decide which agents are needed
+        logger.info("[%s] Phase 1: Starting planner agent", strategy_id)
         yield sse("agent_start", {"agent": "planner"})
 
         eq: queue.Queue = queue.Queue()
@@ -151,9 +220,11 @@ async def generate_cto_strategy(
         state.update(result)
         selected_agents = result.get("selected_agents", ["feasibility", "market", "growth", "hiring"])
 
+        logger.info("[%s] Planner done. Selected agents: %s", strategy_id, selected_agents)
         yield sse("agents_selected", {"agents": selected_agents})
 
         # Review planner output
+        logger.info("[%s] Reviewing planner output", strategy_id)
         yield sse("review_start", {"agent": "planner"})
         review = await asyncio.to_thread(
             review_agent_output,
@@ -162,11 +233,25 @@ async def generate_cto_strategy(
             agent_output=state.get("plan", ""),
             context=state,
         )
-        yield sse("review_done", {"agent": "planner", "valid": review["valid"]})
+        logger.info(
+            "[%s] Planner review: valid=%s reason=%s",
+            strategy_id, review["valid"], review.get("reason", "")[:200],
+        )
+        yield sse("review_done", {
+            "agent": "planner", "valid": review["valid"],
+            "reason": review.get("reason", ""),
+        })
 
         if not review["valid"]:
             for attempt in range(1, MAX_RETRIES + 1):
-                yield sse("agent_retry", {"agent": "planner", "attempt": attempt})
+                logger.warning(
+                    "[%s] Planner retry %d/%d. Reason: %s",
+                    strategy_id, attempt, MAX_RETRIES, review.get("reason", "")[:200],
+                )
+                yield sse("agent_retry", {
+                    "agent": "planner", "attempt": attempt,
+                    "reason": review.get("reason", ""),
+                })
                 eq2: queue.Queue = queue.Queue()
 
                 def on_retry(event_type, data, q=eq2):
@@ -194,21 +279,39 @@ async def generate_cto_strategy(
                     review_agent_output, idea=doc.idea, agent_name="planner",
                     agent_output=state.get("plan", ""), context=state,
                 )
-                yield sse("review_done", {"agent": "planner", "valid": review["valid"]})
+                yield sse("review_done", {
+                    "agent": "planner", "valid": review["valid"],
+                    "reason": review.get("reason", ""),
+                })
                 if review["valid"]:
                     break
 
             if not review["valid"]:
-                yield sse("agent_skipped", {"agent": "planner", "reason": SKIP_REASONS["planner"]})
+                review_reason = review.get("reason", "") or SKIP_REASONS["planner"]
+                logger.error(
+                    "[%s] Planner skipped after %d retries. Reason: %s",
+                    strategy_id, MAX_RETRIES, review_reason[:200],
+                )
+                state["plan"] = _append_gap_analysis(
+                    state.get("plan", ""), "Planner", review_reason
+                )
+                yield sse("agent_skipped", {"agent": "planner", "reason": review_reason})
 
+        logger.info("[%s] Planner phase complete", strategy_id)
+        yield sse("agent_result", {"agent": "planner", "output": state.get("plan", "")})
         yield sse("agent_done", {"agent": "planner"})
 
         # Phase 2: Run only selected downstream agents
+        logger.info("[%s] Phase 2: Running agents %s", strategy_id, selected_agents)
+        agent_iterations = {}  # Track all iterations for each agent
+
         for agent_name in selected_agents:
+            logger.info("[%s] Starting agent: %s", strategy_id, agent_name)
             yield sse("agent_start", {"agent": agent_name})
 
             node_fn = node_map[agent_name]
             output_key = REVIEW_TARGETS[agent_name]
+            agent_iterations[agent_name] = []
 
             eq3: queue.Queue = queue.Queue()
 
@@ -232,18 +335,36 @@ async def generate_cto_strategy(
                 yield sse(*eq3.get_nowait())
 
             state.update(agent_result)
+            agent_iterations[agent_name].append(agent_result.get(output_key, ""))
 
+            logger.info("[%s] Reviewing %s output", strategy_id, agent_name)
             yield sse("review_start", {"agent": agent_name})
             agent_output = agent_result.get(output_key, "")
             review = await asyncio.to_thread(
                 review_agent_output, idea=doc.idea, agent_name=agent_name,
                 agent_output=agent_output, context=state,
             )
-            yield sse("review_done", {"agent": agent_name, "valid": review["valid"]})
+            logger.info(
+                "[%s] %s review: valid=%s reason=%s",
+                strategy_id, agent_name, review["valid"],
+                review.get("reason", "")[:200],
+            )
+            yield sse("review_done", {
+                "agent": agent_name, "valid": review["valid"],
+                "reason": review.get("reason", ""),
+            })
 
             if not review["valid"]:
                 for attempt in range(1, MAX_RETRIES + 1):
-                    yield sse("agent_retry", {"agent": agent_name, "attempt": attempt})
+                    logger.warning(
+                        "[%s] %s retry %d/%d. Reason: %s",
+                        strategy_id, agent_name, attempt, MAX_RETRIES,
+                        review.get("reason", "")[:200],
+                    )
+                    yield sse("agent_retry", {
+                        "agent": agent_name, "attempt": attempt,
+                        "reason": review.get("reason", ""),
+                    })
                     eq4: queue.Queue = queue.Queue()
 
                     def on_retry_agent(event_type, data, q=eq4):
@@ -264,6 +385,7 @@ async def generate_cto_strategy(
                         yield sse(*eq4.get_nowait())
 
                     state.update(retry_result)
+                    agent_iterations[agent_name].append(retry_result.get(output_key, ""))
 
                     yield sse("review_start", {"agent": agent_name})
                     agent_output = retry_result.get(output_key, "")
@@ -271,20 +393,27 @@ async def generate_cto_strategy(
                         review_agent_output, idea=doc.idea, agent_name=agent_name,
                         agent_output=agent_output, context=state,
                     )
-                    yield sse("review_done", {"agent": agent_name, "valid": review["valid"]})
+                    yield sse("review_done", {
+                        "agent": agent_name, "valid": review["valid"],
+                        "reason": review.get("reason", ""),
+                    })
                     if review["valid"]:
                         break
 
                 if not review["valid"]:
                     fail_reason = review.get("reason") or SKIP_REASONS[agent_name]
-                    state[output_key] = (
-                        f'<div class="agent-failure">'
-                        f"<p><strong>Analysis could not be completed</strong></p>"
-                        f"<p>{fail_reason}</p>"
-                        f"</div>"
+                    logger.error(
+                        "[%s] %s skipped after %d retries. Reason: %s",
+                        strategy_id, agent_name, MAX_RETRIES, fail_reason[:200],
+                    )
+                    combined = _combine_iterations(agent_iterations[agent_name])
+                    state[output_key] = _append_gap_analysis(
+                        combined, agent_name, fail_reason
                     )
                     yield sse("agent_skipped", {"agent": agent_name, "reason": fail_reason})
 
+            logger.info("[%s] Agent %s complete", strategy_id, agent_name)
+            yield sse("agent_result", {"agent": agent_name, "output": state.get(output_key, "")})
             yield sse("agent_done", {"agent": agent_name})
 
         updates = {
@@ -296,6 +425,8 @@ async def generate_cto_strategy(
             "hiring_plan": {"plan": state["hiring_plan"]},
         }
         updated = await repo.update(strategy_id, updates)
+
+        logger.info("[%s] Generation complete. Saved to database.", strategy_id)
 
         final = {
             "id": updated.id,

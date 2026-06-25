@@ -1,0 +1,33 @@
+{
+  "query": "GPU engineer salary India 2024",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:37:46.418656",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Salary: GPU Engineer in India 2024 | Glassdoor",
+      "url": "https://www.glassdoor.co.in/Salaries/gpu-engineer-salary-SRCH_KO0,12_IP5.htm",
+      "snippet": "The average salary for a GPU Engineer is \u20b914,34,072 per year in India. Salaries estimates are based on 3 salaries submitted anonymously to Glassdoor by a GPU Engineer employees in India."
+    },
+    {
+      "title": "Salary: Gpu Engineer in India 2024 | Glassdoor",
+      "url": "https://www.glassdoor.co.in/Salaries/gpu-engineer-salary-SRCH_KO0,12_IP3.htm",
+      "snippet": "The average salary for a GPU Engineer is \u20b915,86,500 per year in India. Salaries estimates are based on 4 salaries submitted anonymously to Glassdoor by a GPU Engineer employees in India."
+    },
+    {
+      "title": "Salary: Gpu Software Engineer in India 2024 | Glassdoor",
+      "url": "https://www.glassdoor.com/Salaries/gpu-software-engineer-salary-SRCH_IN115_KO0,21.htm",
+      "snippet": "The estimated total pay for a Gpu Software Engineer is \u20b92,123,968 per year, with an average salary of \u20b91,966,606 per year. These numbers represent the median, which is the midpoint of the ranges from our proprietary Total Pay Estimate model and based on salaries collected from our users. The estimated additional pay is \u20b9157,362 per year. Additional pay could include cash bonus ..."
+    },
+    {
+      "title": "Salary: Gpu Engineer in India 2024 | Glassdoor",
+      "url": "https://www.glassdoor.com.hk/Salaries/india-gpu-engineer-salary-SRCH_IL.0,5_IN115_KO6,18.htm",
+      "snippet": "The average salary for GPU Engineer is \u20b91,586,500 per year in the India. The average additional cash compensation for a GPU Engineer in the India is \u20b9136,500, with a range from \u20b973,000 - \u20b9200,000. Salaries estimates are based on 4 salaries submitted anonymously to Glassdoor by GPU Engineer employees in India."
+    },
+    {
+      "title": "Salary: Gpu Engineer in India 2024 | Glassdoor",
+      "url": "https://www.glassdoor.com.au/Salaries/india-gpu-engineer-salary-SRCH_IL.0,5_IN115_KO6,18.htm",
+      "snippet": "The estimated total pay for a Gpu Engineer is INR 1,586,500 per year in the India area, with an average salary of INR 1,450,000 per year. These numbers represent the median, which is the midpoint of the ranges from our proprietary Total Pay Estimate model and based on salaries collected from our users."
+    }
+  ]
+}

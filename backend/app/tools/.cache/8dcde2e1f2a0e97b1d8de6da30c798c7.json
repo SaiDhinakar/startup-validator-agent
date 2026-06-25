@@ -1,0 +1,33 @@
+{
+  "query": "GPU cloud startup budget 2025 India launch cost",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:17:09.591286",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Best GPU Cloud for Indian Startups | Gpu | Cloud Computing Dictionary | E2E Networks",
+      "url": "https://www.e2enetworks.com/cloud-terms/gpu/gpu-cloud-indian-startups",
+      "snippet": "GPU cloud budget varies by use case: $500-1,000 (\u20b940,000-80,000) monthly for early development and experimentation, $1,500-3,000 (\u20b91.2-2.5 lakhs) for active model training and iteration, $3,000-7,000 (\u20b92.5-6 lakhs) for production deployment at moderate scale."
+    },
+    {
+      "title": "AI Startup Infrastructure India | Gpu | Cloud Computing Dictionary | E2E Networks",
+      "url": "https://www.e2enetworks.com/cloud-terms/gpu/ai-startup-infra-india",
+      "snippet": "AI startup infrastructure budgets vary by stage: pre-seed/MVP phase \u20b915,000-40,000 monthly (40-80h GPU usage), seed stage \u20b980,000-200,000 monthly (150-300h GPU usage), Series A \u20b9200,000-800,000+ monthly (500-1000+ hours). Infrastructure should represent 20-30% of technical budget."
+    },
+    {
+      "title": "GPU Cloud Cost Comparison: An AI Startup\u2019s Guide for 2025",
+      "url": "https://www.gmicloud.ai/en/blog/2026-gpu-cloud-cost-comparison",
+      "snippet": "April 14, 2026 - For high-end NVIDIA H100 GPUs, specialized providers like GMI Cloud offer some of the lowest on-demand rates, starting at $2.10/hour. This is significantly more cost-effective than hyperscalers like AWS or Azure."
+    },
+    {
+      "title": "NVIDIA H100 Price in India: Complete Cloud vs Purchase Guide (2025) | E2E Networks",
+      "url": "https://www.e2enetworks.com/blog/nvidia-h100-price-india",
+      "snippet": "November 17, 2025 - Complete H100 GPU pricing guide for India: \u20b9249/hr cloud vs \u20b930L+ purchase. Hidden costs, ROI analysis, spot instances at \u20b970/hr. 2000+ GPUs available."
+    },
+    {
+      "title": "Top 7 GPU Cloud providers in India 2026 \u2014 Plans, Pricing & AI Performance- CloudMinister",
+      "url": "https://cloudminister.com/blog/gpu-cloud-providers-in-india/",
+      "snippet": "April 21, 2026 - Best budget entry point: MilesWeb \u2014 \u20b95,100/month starting price, best suited for development and experimentation workloads. Best for enterprise custom builds: Serverwala \u2014 A100 multi-GPU custom configurations for large organizations with ..."
+    }
+  ]
+}

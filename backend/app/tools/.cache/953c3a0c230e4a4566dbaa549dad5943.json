@@ -1,0 +1,33 @@
+{
+  "query": "AWS India GPU pricing per hour t4g",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:15:38.965744",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "GPU Cloud Pricing | Per-Second H100, A100, RTX | Runpod",
+      "url": "https://www.runpod.io/pricing",
+      "snippet": "Runpod pricing is based on the type of GPU workload you run. Pods are dedicated GPU instances for development and long-running jobs, Serverless bills inference workers based on usage, and Clusters support multi-node workloads and reserved capacity."
+    },
+    {
+      "title": "GPU Cloud Providers in India 2026: H100, H200, and... | Spheron Blog",
+      "url": "https://www.spheron.network/blog/gpu-cloud-india-2026/",
+      "snippet": "GPU Cloud Pricing Comparison. The table below consolidates pricing across providers covered in this guide. INR equivalents use approximately 95 INR per USD as of May 2026."
+    },
+    {
+      "title": "AWS Pricing Calculator",
+      "url": "https://calculator.aws/",
+      "snippet": "AWS Pricing Calculator lets you explore AWS services, and create an estimate for the cost of your use cases on AWS.Acknowledgement. AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply."
+    },
+    {
+      "title": "Free Cloud Computing Services - AWS Free Tier",
+      "url": "https://aws.amazon.com/free/",
+      "snippet": "Browse 100 offerings for AWS free tier services.Get access to over 90 services for up to 6 months as you build and experiment with no charges and no surprise overages. Paid plan. Access the full range of AWS services with pay-as-you-go pricing."
+    },
+    {
+      "title": "AWS Cost Optimization for Early-Stage SaaS Startups in India",
+      "url": "https://techtweekinfotech.com/aws-cost-optimization-early-stage-saas-india/",
+      "snippet": "AWS Graviton processors are custom ARM-based CPUs delivering 20% better price-performance than Intel x86. For SaaS workloads, this is free money left on the table if ignored. Drop-in replacement: t4g (Graviton 3) instances cost..."
+    }
+  ]
+}

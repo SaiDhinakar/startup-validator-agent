@@ -1,0 +1,33 @@
+{
+  "query": "Indian GPU cloud pricing H100 2024",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:18:28.182413",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "GPU Cloud Providers in India 2026: H100, H200, and... | Spheron Blog",
+      "url": "https://www.spheron.network/blog/gpu-cloud-india-2026/",
+      "snippet": "GPU Cloud Pricing Comparison. The table below consolidates pricing across providers covered in this guide. INR equivalents use approximately 95 INR per USD as of May 2026."
+    },
+    {
+      "title": "GPU Cloud Pricing | Per-Second H100, A100, RTX | Runpod",
+      "url": "https://www.runpod.io/pricing",
+      "snippet": "GPU cloud computing at up to 80% less than hyperscalers. Explore pricing for on-demand Pods, Serverless, Clusters, and Network Storage."
+    },
+    {
+      "title": "E2E Networks - Review, Pricing & Alternatives | getInfra.cloud",
+      "url": "https://getinfra.cloud/providers/e2e-networks",
+      "snippet": "Indian Provider NSE Listed GPU Cloud. India's first NSE-listed cloud provider and AI-first hyperscaler - offering B200, H200, H100, A100 GPUs and Linux cloud VMs at up to 70% lower costs than AWS, with full data sovereignty."
+    },
+    {
+      "title": "Rent H200 GPU Server in India",
+      "url": "https://www.cantech.in/gpu-servers/rent-h200-gpu",
+      "snippet": "Cloud GPU GPU servers for intensive workloads and apps. NVIDIA GPU Server Flexible NVIDIA GPU Servers for Every Workload.It has 76 percent more capacity than the H100 GPU. It is simple to fit and train massive AI models on fewer GPUs. Super-Fast Memory Bandwidth."
+    },
+    {
+      "title": "SSD VPS Servers, Cloud Servers and Cloud Hosting - Vultr.com",
+      "url": "https://www.vultr.com/",
+      "snippet": "Pricing starts at $2.990/GPU/hr. NVIDIA HGX\u2122 H100.The combination of Vultr Cloud GPU, powered by NVIDIA, and Dell infrastructure enables us to achieve our aims.\u201d Dimitrios Iliopoulos, PhD MBA, President and CEO at Athos."
+    }
+  ]
+}

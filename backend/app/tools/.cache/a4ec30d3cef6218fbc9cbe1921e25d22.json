@@ -1,0 +1,33 @@
+{
+  "query": "AI startup GPU cloud India budget 2026 startup",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:32:59.913640",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Best GPU Cloud for Indian Startups | Gpu | Cloud Computing Dictionary | E2E Networks",
+      "url": "https://www.e2enetworks.com/cloud-terms/gpu/gpu-cloud-indian-startups",
+      "snippet": "... E2E Networks offers the most cost-effective GPU cloud for Indian startups, with entry-level L4 GPUs starting at \u20b950-70/hour and spot instances providing 65-70% discounts. INR billing eliminates currency risk, and no minimum commitments allow pay-as-you-go usage."
+    },
+    {
+      "title": "AI Startup Infrastructure India | Gpu | Cloud Computing Dictionary | E2E Networks",
+      "url": "https://www.e2enetworks.com/cloud-terms/gpu/ai-startup-infra-india",
+      "snippet": "AI startup infrastructure budgets vary by stage: pre-seed/MVP phase \u20b915,000-40,000 monthly (40-80h GPU usage), seed stage \u20b980,000-200,000 monthly (150-300h GPU usage), Series A \u20b9200,000-800,000+ monthly (500-1000+ hours). Infrastructure should represent 20-30% of technical budget."
+    },
+    {
+      "title": "IndiaAI GPUs Access 2026: Rs 67/Hour Compute for Startups - TechDodo",
+      "url": "https://techdodo.in/articles/india-ai-impact-summit-2026-gpu-access-guide",
+      "snippet": "January 16, 2026 - The IndiaAI Mission has secured 38,000 GPUs available to startups and researchers at Rs 65-92 per hour - roughly one-third of global cloud prices. Here's your complete guide to accessing this subsidized compute before the AI Impact Summit 2026."
+    },
+    {
+      "title": "IndiaAI Mission: 34,000 GPUs at Rs 150/Hour for Startups | Abhishek Gautam",
+      "url": "https://www.abhs.in/blog/indiaai-mission-34000-gpus-cheap-compute-developers-2026",
+      "snippet": "March 8, 2026 - Rs 115-150/GPU-hour \u2014 subsidised rate, 42% below market; eligible projects get an additional 40% off \u00b7 February 18, 2026 \u2014 Sarvam AI launched Sarvam-105B open-source, India's most capable sovereign LLM \u00b7 Rs 10,371.92 crore ($1.25 billion) \u2014 ..."
+    },
+    {
+      "title": "IndiaAI Compute Capacity",
+      "url": "https://indiaai.gov.in/hub/indiaai-compute-capacity",
+      "snippet": "IndiaAI has empaneled AI services on cloud and intends to offer AI compute infrastructure to academia, MSMEs, startups, research community, governments, public sector agencies and other entities registered and approved by IndiaAI."
+    }
+  ]
+}

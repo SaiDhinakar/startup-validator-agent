@@ -1,0 +1,33 @@
+{
+  "query": "cyfuture.ai GPU server leasing cost India 2026",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:32:42.076715",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Rent GPU in India | Pricing, Best GPUs & Use Cases | Cyfuture AI",
+      "url": "https://cyfuture.ai/blog/rent-gpu-in-india",
+      "snippet": "March 18, 2026 - For fine-tuning models up to 70B or most research workloads, the A100 80GB at Rs 170/hr offers the best price-performance balance. For inference serving and image generation, the L40S at Rs 61/hr is India's most popular GPU rental in 2026 \u2014 it delivers excellent throughput for 7B\u201313B models ..."
+    },
+    {
+      "title": "GPU Cloud Pricing: India vs Global Providers \u2014 Full Cost Comparison (2026)",
+      "url": "https://cyfuture.ai/blog/gpu-cloud-pricing-in-india-vs-global-providers",
+      "snippet": "April 7, 2026 - All INR figures use \u20b991.1 per USD (April 2026 rate). Cyfuture AI prices are published on-demand rates; hyperscaler prices are per-GPU equivalents from their multi-GPU instance pricing."
+    },
+    {
+      "title": "GPU Server Price Options for AI, ML, and Rendering Workloads",
+      "url": "https://cyfuture.cloud/kb/gpu/gpu-server-price-options-for-ai-ml-and-rendering-workloads",
+      "snippet": "Cyfuture Cloud supports both profiles with on-demand and reserved pricing models. For devs and studios that operate on Indian soil, latency-sensitive workflows see significant performance gains."
+    },
+    {
+      "title": "Top 10 GPU Hosting Providers in India (2026) \u2014 Pricing, Features & Comparison",
+      "url": "https://cyfuture.ai/blog/top-10-gpu-hosting-providers-in-india",
+      "snippet": "April 1, 2026 - For teams already in the AWS or GCP ecosystem for non-regulated workloads, those platforms remain viable but at 3\u00d7 the cost. How much does GPU hosting cost in India in 2026? + GPU hosting in India starts from \u20b939/hr for entry-level V100 instances on Cyfuture AI."
+    },
+    {
+      "title": "GPU Server Rentals 2026: Transform Cloud Hosting Performance",
+      "url": "https://cyfuture.ai/blog/gpu-server-rentals",
+      "snippet": "October 12, 2025 - Hidden Fees: Data transfer costs, storage fees, and setup charges \u00b7 Uptime Guarantees: SLA commitments (typically 99.9%+) Geographic Distribution: Multi-region availability for failover \u00b7 Technical Support: Response times and expertise levels \u00b7 Community Resources: Documentation, tutorials, and user forums \u00b7 The GPU rental market has diversified significantly: ... Cyfuture AI has positioned itself as a forward-thinking GPU server rental provider by addressing the pain points enterprises actually face:"
+    }
+  ]
+}

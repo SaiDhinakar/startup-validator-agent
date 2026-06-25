@@ -1,0 +1,33 @@
+{
+  "query": "GPU cloud rental rates India A100 80GB hourly price",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:33:49.659778",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "GPU Cloud Pricing | Per-Second H100, A100, RTX | Runpod",
+      "url": "https://www.runpod.io/pricing",
+      "snippet": "80. GB. A100. High throughput GPU, yet still very cost-effective. $ 2.72.Dedicated GPU clusters with guaranteed availability, custom configurations, SLA-backed uptime, and discounted rates for enterprises scaling to 10,000+ GPUs."
+    },
+    {
+      "title": "RunPod vs Local GPU 2026: When to Rent and When to Buy for Local...",
+      "url": "https://runaihome.com/blog/runpod-vs-local-gpu-rent-or-buy/",
+      "snippet": "A100 80GB and H100 80GB are not consumer products. If you need to run a 100B+ parameter model that needs 80GB+ VRAM, cloud is your only path until consumer hardware catches up."
+    },
+    {
+      "title": "Rent GPUs Online | Cheap GPU Servers from $0.19/hr | OpenRelay",
+      "url": "https://openrelay.inc/rent-gpu",
+      "snippet": "Rent cheap GPU servers from $0.19/hr. NVIDIA RTX 4090, H100, A100 \u2014 up to 76% less than AWS and GCP. No egress fees, per-second billing, auto-failover included. Start in minutes."
+    },
+    {
+      "title": "Rent GPUs | Vast.ai",
+      "url": "https://vast.ai/",
+      "snippet": "Rent high-performance cloud GPUs at low cost with Vast.ai. Instantly deploy GPU rentals for AI, machine learning, deep learning, and rendering. Flexible pricing, fast setup, and global availability.GPU Cloud. On-demand instances across 40+ data centers and 20,000+ GPUs."
+    },
+    {
+      "title": "SambaNova SN40L vs NVIDIA H200 and B200 on GPU Cloud: RDU...",
+      "url": "https://www.spheron.network/blog/sambanova-sn40l-vs-nvidia-h200-b200-rdu-inference-2026/",
+      "snippet": "SambaNova Cloud uses per-output-token billing, not hourly rentals. For large models like Llama 4 Maverick, managed API pricing runs approximately $6/M output tokens. On Spheron, H200 SXM5 starts at $4.62/hr on-demand and B200 SXM6 at $7.00/hr on-demand."
+    }
+  ]
+}

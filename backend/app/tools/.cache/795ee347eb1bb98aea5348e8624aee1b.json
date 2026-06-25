@@ -1,0 +1,33 @@
+{
+  "query": "GPU cloud pricing India 2026 A100 80GB Rs 170 per hour",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:32:52.897598",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "TCO Analysis: GPU Rental vs Buying India - CloudMinister",
+      "url": "https://cloudminister.com/blog/gpu-server-rental-vs-buying-tco-analysis-india/",
+      "snippet": "GPU Model, Hourly Rate (Market), Monthly (730 hrs) ; NVIDIA RTX 4090 (24GB), \u20b980\u2013\u20b9120/hr (on-demand), \u20b958,400\u2013\u20b987,600 ; NVIDIA A100 80GB, \u20b9170\u2013\u20b9195/hr (on- ..."
+    },
+    {
+      "title": "Price list: A comparison of our Public Cloud offers | OVHcloud India",
+      "url": "https://www.ovhcloud.com/en-in/public-cloud/prices/",
+      "snippet": "OVH Public Cloud offers cloud solutions at attractive prices, GPU Metal Instances. Get started with \u20b9 18 000 free lists rates for 6, 12, 24 and 36-month Plans. ..."
+    },
+    {
+      "title": "Top 10 GPU as a Service Providers in India (2026) \u2013 Pricing & Comparison",
+      "url": "https://cyfuture.ai/blog/top-gpu-as-a-service-providers-in-india",
+      "snippet": "15 Sept 2025 \u00b7 the A100 80GB is your best price-performance choice. 80GB costs Rs 219/hr (~$2.62). equivalent H100 capacity costs ~$3.25/hr ly 24% more before ..."
+    },
+    {
+      "title": "NVIDIA L4 vs. A100 GPUs: Choosing the Right Option for Your AI Needs",
+      "url": "https://www.linkedin.com/pulse/nvidia-l4-vs-a100-gpus-choosing-right-option-your-ai-needs-rawat-b99ic",
+      "snippet": "1 May 2024 \u00b7 Nvidia L4 costs Rs.50/hr, while the A100 costs Rs.170/hr and Rs.220/hr respectively for the 40 GB and 80 GB variants. It must be balanced ..."
+    },
+    {
+      "title": "Cloud GPU rental prices - Scouts by Yutori",
+      "url": "https://scouts.yutori.com/67fb5bb1-8854-449f-8618-1465e1689a28",
+      "snippet": "Spheron A100 80GB SXM4 spot is $0.82/hr as of June 13, 2026; on-demand is $1.69/hr. Spheron. E2E Networks (India) H100 spot is \u20b970/hr (~$0.83/hr at 95 INR/USD) ..."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "query": "median CAC B2B SaaS 2025 $200",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:36:12.338647",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "CAC in B2B SaaS 2025: Benchmarks | HelloMrLead",
+      "url": "https://www.hellomrlead.com/en/cac-in-b2b-saas-2025-benchmarks/",
+      "snippet": "Discover key CAC benchmarks in B2B SaaS for 2025, trends, macroeconomic factors, and strategies to optimize customer acquisition costs."
+    },
+    {
+      "title": "B2B SaaS Customer Acquisition Cost: 2025 Report - First Page Sage",
+      "url": "https://firstpagesage.com/reports/b2b-saas-customer-acquisition-cost-2024-report/",
+      "snippet": "Customer Acquisition Cost (CAC) is a critical element used to evaluate the financial health of B2B SaaS companies, particularly when combined with customer lifetime value to determine the company's LTV-to-CAC-ratio. CAC can be calculated using the following formula. In order to create the tables below, our researchers compiled over a decade's worth of client data from the B2B SaaS ..."
+    },
+    {
+      "title": "Average Customer Acquisition Cost (CAC) By Industry: B2B Edition",
+      "url": "https://firstpagesage.com/reports/average-customer-acquisition-cost-cac-by-industry-b2b-edition-fc/",
+      "snippet": "Average Customer Acquisition Cost (CAC) for SaaS Companies Our team has also analyzed the average customer acquisition costs of 22 SaaS industries to determine the average B2B CAC for each."
+    },
+    {
+      "title": "2025 B2B SaaS Benchmarks: CAC, NRR & Growth Rate Metrics",
+      "url": "https://www.joinpavilion.com/resource/b2b-saas-performance-benchmarks",
+      "snippet": "The 2025 B2B SaaS Benchmarks report gives you hard numbers on the metrics that matter: CAC ratios, revenue retention, expansion ARR contribution, burn multiples, and ARR per employee\u2014everything you need to measure your company against the market. Use these benchmarks to validate your SaaS strategy, set realistic performance targets, and make data-driven decisions that position your business ..."
+    },
+    {
+      "title": "2025 SaaS Performance Metrics | Benchmarkit",
+      "url": "https://www.benchmarkit.ai/2025benchmarks",
+      "snippet": "Get the Report for the 2025 SaaS B2B Marketing Benchmarks. Learn about the latest in Marketing Budget Allocation, Marketing Budget Setting, Marketing + GTM Metrics, Growth Rates & Marketing, Marketing Headcount and more!"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "query": "Indian startups GPU cloud pain points latency cost",
+  "tool": "reddit_search",
+  "timestamp": "2026-06-25T18:34:42.794621",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Cheapest cloud GPU services for AI learning purposes - Reddit",
+      "url": "https://www.reddit.com/r/developersIndia/comments/1c5yge8/cheapest_cloud_gpu_services_for_ai_learning/",
+      "snippet": "B) As the title suggests ,would like to know about 'pay as you go' cloud GPU services that are affordable and can get the job done, preferably no credit card required. I really can't afford to buy 'on premise GPU' currently."
+    },
+    {
+      "title": "Indian Startups - Reddit",
+      "url": "https://www.reddit.com/r/indianstartups/",
+      "snippet": "A discussion forum for entrepreneurs to network and help each other and discuss everything about startups in India."
+    },
+    {
+      "title": "India Startups : Community of Indian Startups - Reddit",
+      "url": "https://www.reddit.com/r/IndiaStartups/",
+      "snippet": "r/IndiaStartups: India Startups : Community of Indian Startups to discuss and share. - technology, investing, blogging, entrepreneurship, venture\u2026"
+    },
+    {
+      "title": "For people using AI, what's your biggest pain point? : r/startups - Reddit",
+      "url": "https://www.reddit.com/r/startups/comments/19est4v/for_people_using_ai_whats_your_biggest_pain_point/",
+      "snippet": "The key challenge in operationalizing AI projects lies in harmonizing cost, latency, and fine-tuning. Achieving optimal efficiency requires a delicate balance among these factors. Measuring success metrics accurately is crucial, but the noise on platforms like Twitter can be misleading."
+    },
+    {
+      "title": "[Discussion] Which GPU provider do you think is the best for ... - Reddit",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/159wlx6/discussion_which_gpu_provider_do_you_think_is_the/",
+      "snippet": "RunPod and QuickPod - The goto place for cost effective GPU and CPU rentals and Rent GPUs | Vast.ai are cloud gpu providers which accumulate Host provided gpus from all over the world, their prices are the best you can find, they have convenient features like webconnect. You get a docker POD with instant access to multiple GPUs."
+    }
+  ]
+}

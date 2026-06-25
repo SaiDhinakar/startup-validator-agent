@@ -1,0 +1,33 @@
+{
+  "query": "DPDP Act data residency GPU cloud India compliance",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:17:42.091930",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Cloud GPU India 2026: Best Providers, Pricing & How to... | Cyfuture AI",
+      "url": "https://cyfuture.ai/blog/top-cloud-gpu-providers",
+      "snippet": "DPDP Act Compliance Checklist for Cloud GPU. Data Residency Personal data must be processed within India. Your GPU provider needs physical infrastructure in Indian jurisdiction \u2014 not just routing through a Mumbai availability zone."
+    },
+    {
+      "title": "GPU Cloud Providers in India 2026: H100, H200, and... | Spheron Blog",
+      "url": "https://www.spheron.network/blog/gpu-cloud-india-2026/",
+      "snippet": "GPU cloud options for India teams in 2026. Compare domestic providers (Yotta, E2E Networks) with global neoclouds on H100, H200, B200 pricing, INR billing, and DPDP Act compliance."
+    },
+    {
+      "title": "Ola Krutrim Review 2026: India's Sovereign AI Cloud | My AI Guide",
+      "url": "https://myaiguide.co/tools/ola-krutrim",
+      "snippet": "Ola Krutrim. An India-based sovereign AI cloud with GPUs, AI Pods, and 22 Indian languages.\u2022Data residency in India every GPU, storage volume, and model endpoint stays inside Indian borders, which solves DPDP Act and government-tender compliance out of the box."
+    },
+    {
+      "title": "Guide to India\u2019s Digital Personal Data Protection Act (DPDP Act)",
+      "url": "https://www.cookieyes.com/blog/india-digital-personal-data-protection-act-dpdpa/",
+      "snippet": "Table of contentsSteps to Digital Personal Data Protection Act complianceIndia DPDP Act vs EU GDPR [Infographic]"
+    },
+    {
+      "title": "Data protection laws in India - Data Protection Laws of the World",
+      "url": "https://www.dlapiperdataprotection.com/?t=law&c=IN",
+      "snippet": "Scope and applicability. The DPDP Act pertains to the processing of digital personal data within India, encompassing situations where the personal data is either (i) collected in a digital form or (ii) collected in a non-digitized form and subsequently converted into digital form."
+    }
+  ]
+}

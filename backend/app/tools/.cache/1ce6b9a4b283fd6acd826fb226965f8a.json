@@ -1,0 +1,33 @@
+{
+  "query": "DPDP Act compliance GPU cloud India",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:16:27.741351",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Top 7 GPU Cloud providers in India 2026 \u2014 Plans, Pricing & AI Performance- CloudMinister",
+      "url": "https://cloudminister.com/blog/gpu-cloud-providers-in-india/",
+      "snippet": "April 21, 2026 - For Indian enterprises and AI teams, ... The SOC2-certified infrastructure, Indian data centre location (DPDP Act compliant), and 99.99% uptime SLA address every compliance and reliability concern in one package..."
+    },
+    {
+      "title": "DPDP + Data Residency For Cloud GPU Workloads (India, 2026)",
+      "url": "https://acecloud.ai/blog/dpdp-data-residency-gpu-workloads-india/",
+      "snippet": "February 23, 2026 - Section 16 of the DPDP Act allows transfer of personal data outside India for processing, while giving the Central Government power to restrict transfers to notified countries or territories."
+    },
+    {
+      "title": "GPU Cloud Providers in India 2026: H100, H200, and B200 Availability with INR Billing | Spheron Blog",
+      "url": "https://www.spheron.network/blog/gpu-cloud-india-2026/",
+      "snippet": "May 23, 2026 - AWS, Azure, and GCP have the GPUs but charge 3-5x more than the alternatives. For a broader look at global alternatives to hyperscalers, see our AWS, GCP, and Azure GPU alternative analysis and top 10 cloud GPU providers guide."
+    },
+    {
+      "title": "How GPU as a Service in India Solves the DPDP 2023 Data Residency Challenge | nasscom | The Official Community of Indian IT Industry",
+      "url": "https://community.nasscom.in/communities/ai/how-gpu-service-india-solves-dpdp-2023-data-residency-challenge",
+      "snippet": "2 weeks ago - With the implementation of the Digital Personal Data Protection (DPDP) Act, 2023, organizations must carefully evaluate where personal data is stored, processed, and accessed during AI training and inference."
+    },
+    {
+      "title": "Data Sovereignty and GPU Cloud in India | Gpu | Cloud Computing Dictionary | E2E Networks",
+      "url": "https://www.e2enetworks.com/cloud-terms/gpu/data-sovereignty-india",
+      "snippet": "Data sovereignty in GPU cloud computing ... (DPDPA) and sector-specific regulations from RBI, SEBI, and proposed healthcare legislation mandate local storage for certain data categories...."
+    }
+  ]
+}

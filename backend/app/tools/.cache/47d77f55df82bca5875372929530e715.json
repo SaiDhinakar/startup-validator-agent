@@ -1,0 +1,33 @@
+{
+  "query": "Indian GPU cloud startup AI infrastructure",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:13:51.734058",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Yotta Built India's First Sovereign AI Infrastructure With Shakti Cloud",
+      "url": "https://www.nvidia.com/en-us/case-studies/yotta-built-india-sovereign-ai-infrastructure-shakti-cloud/",
+      "snippet": "Yotta partnered with NVIDIA to create Shakti Cloud, India's first AI platform providing advanced computing for developing and deploying large language ..."
+    },
+    {
+      "title": "Yotta Shakti Cloud: Sovereign Cloud & AI Cloud Platform India",
+      "url": "https://shakticloud.ai/",
+      "snippet": "Shakti Cloud is India's sovereign AI Cloud platform. With the largest NVIDIA GPU infrastructure in the nation. It delivers trusted, high-performance compute ..."
+    },
+    {
+      "title": "GPU Cloud Providers in India 2026: H100, H200, and B200 ...",
+      "url": "https://www.spheron.network/blog/gpu-cloud-india-2026/",
+      "snippet": "May 23, 2026 ... Vast.ai runs a GPU marketplace where hosts list idle capacity. This produces the lowest spot prices in the market. Indian Visa and Mastercard ..."
+    },
+    {
+      "title": "AI Startup Infrastructure India | Gpu | Cloud Computing Dictionary",
+      "url": "https://www.e2enetworks.com/cloud-terms/gpu/ai-startup-infra-india",
+      "snippet": "AI startup infrastructure in India requires GPU compute, storage, MLOps tools, and supporting services optimized for cost-efficiency and flexibility during ..."
+    },
+    {
+      "title": "Neysa - AI Acceleration Cloud System",
+      "url": "https://neysa.ai/",
+      "snippet": "Neysa offers AI Acceleration Cloud System for fast training & inference on GPUs\u2014built on open source with full-stack AI infrastructure."
+    }
+  ]
+}

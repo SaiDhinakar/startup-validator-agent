@@ -1,0 +1,33 @@
+{
+  "query": "Indian GPU cloud L4 hourly price India",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:34:07.007073",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Cloud GPU Pricing Comparison India [2026]: A100, H200 & More",
+      "url": "https://acecloud.ai/blog/cloud-gpu-pricing-comparison/",
+      "snippet": "March 11, 2026 - If lowering \u20b9/GPU-hour is a priority, start a short PoC on AceCloud (e.g., H100 for training, L4/L40S for inference), use the \u20b920,000 credits noted above and request a tailored INR quote with capacity planning and FinOps guardrails."
+    },
+    {
+      "title": "NVIDIA L4 Price In India | L4 GPU Pricing",
+      "url": "https://acecloud.ai/pricing/linux/inr/noida/nvidia-l4-24gb/",
+      "snippet": "May 19, 2026 - Compare NVIDIA L4 24GB cloud GPU pricing in INR for AI inference, video processing, media workloads and GPU-accelerated applications. View monthly, 6-month and 12-month pricing for 1x, 2x and 4x L4 configurations. ... Build an hourly and monthly estimate for your exact setup across compute, GPU, storage, and networking."
+    },
+    {
+      "title": "GPU Cloud Providers in India | Gpu | Cloud Computing Dictionary | E2E Networks",
+      "url": "https://www.e2enetworks.com/cloud-terms/gpu/gpu-cloud-india",
+      "snippet": "For most Indian organizations prioritizing cost, performance, and data sovereignty, E2E Networks represents the optimal choice. GPU cloud pricing varies by hardware and provider. Entry-level L4 instances start around \u20b950-80 per hour, mid-range A100 40GB costs \u20b9180-250 per hour, and high-end ..."
+    },
+    {
+      "title": "Best GPU Cloud for Indian Startups | Gpu | Cloud Computing Dictionary | E2E Networks",
+      "url": "https://www.e2enetworks.com/cloud-terms/gpu/gpu-cloud-indian-startups",
+      "snippet": "E2E Networks offers the most cost-effective GPU cloud for Indian startups, with entry-level L4 GPUs starting at \u20b950-70/hour and spot instances providing 65-70% discounts. INR billing eliminates currency risk, and no minimum commitments allow pay-as-you-go usage."
+    },
+    {
+      "title": "GPU Cloud India \u2014 Rent NVIDIA GPUs from \u20b941.31/hr",
+      "url": "https://jarvislabs.ai/in",
+      "snippet": "What is the price of NVIDIA GPUs in India for cloud rental? JarvisLabs offers NVIDIA GPUs at competitive hourly rates in INR: H200 SXM at \u20b9318/hr (141 GB VRAM), H100 SXM at \u20b9255/hr (80 GB), A100 40GB at \u20b984/hr, A6000 at \u20b975/hr (48 GB), and L4 at \u20b941/hr (24 GB)."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "query": "GPU server leasing cost India 2026",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:15:59.203212",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "Top 7 GPU Cloud providers in India 2026 \u2014 Plans, Pricing & AI ...",
+      "url": "https://cloudminister.com/blog/gpu-cloud-providers-in-india/",
+      "snippet": "Quick Summary We evaluated 7 leading GPU cloud providers in India \u2014 covering both cloud-native platforms and dedicated GPU server providers \u2014 across pricing transparency, GPU model availability, uptime SLAs, managed support quality, and AI performance suitability."
+    },
+    {
+      "title": "GPU Cloud Providers in India 2026: H100, H200, and B200 Availability ...",
+      "url": "https://www.spheron.network/blog/gpu-cloud-india-2026/",
+      "snippet": "GPU cloud options for India teams in 2026. Compare domestic providers (Yotta, E2E Networks) with global neoclouds on H100, H200, B200 pricing, INR billing, and DPDP Act compliance."
+    },
+    {
+      "title": "GPU Server in India: Pricing, Use Cases & How to Choose (2026)",
+      "url": "https://cyfuture.ai/blog/gpu-servers-in-india",
+      "snippet": "Everything about GPU servers in India \u2014 what they are, H100/A100/L40S pricing, AI use cases, rent vs buy, and India-hosted DPDP-compliant GPU cloud from Cyfuture AI."
+    },
+    {
+      "title": "Cloud GPU Pricing - Compare 66 Providers (2026) - GetDeploying",
+      "url": "https://getdeploying.com/gpus",
+      "snippet": "Compare 4211 GPU listings across 66 providers and 89 GPU models. Live pricing for NVIDIA and AMD GPUs including on-demand, reserved, and spot instances."
+    },
+    {
+      "title": "Cloud GPU Pricing Comparison India [2026]: A100, H200 & More",
+      "url": "https://acecloud.ai/blog/cloud-gpu-pricing-comparison/",
+      "snippet": "If you want a complete bill estimate beyond GPU-hour pricing (compute, storage, and network/egress), follow our step-by-step cloud cost estimation guide. Cloud GPU Monthly Pricing Comparison in India Below is a side-by-side comparison of cloud GPU pricing, organized by GPU model across major providers. NVIDIA H100 (Monthly Pricing)"
+    }
+  ]
+}

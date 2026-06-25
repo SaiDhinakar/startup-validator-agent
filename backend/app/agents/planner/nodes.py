@@ -1,5 +1,6 @@
 """Planner agent — LLM decides what to search and which agents to run."""
 
+import logging
 from typing import Callable
 
 from app.agents.planner.prompts import PLANNER_SYSTEM, PLANNER_USER, PLANNER_USER_CTO, parse_selected_agents
@@ -8,10 +9,13 @@ from app.core.agent_runner import run_agent
 from app.core.llm import get_llm
 from app.tools import search_web
 
+logger = logging.getLogger(__name__)
+
 
 def plan_node(state: PlannerState, on_event: Callable | None = None) -> dict:
     product_name = state.get("product_name", "")
     idea = product_name or state.get("idea", "")
+    logger.info("Planner node starting for: %s", idea[:60])
 
     if product_name:
         prompt = PLANNER_USER_CTO.format(
@@ -39,4 +43,5 @@ def plan_node(state: PlannerState, on_event: Callable | None = None) -> dict:
     )
 
     selected = parse_selected_agents(response)
+    logger.info("Planner selected agents: %s", selected)
     return {"plan": response, "selected_agents": selected}

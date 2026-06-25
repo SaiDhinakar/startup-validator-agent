@@ -1,0 +1,33 @@
+{
+  "query": "GPU cloud startup launch budget 2024 India",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:34:19.156201",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "IndiaAI Compute Capacity",
+      "url": "https://indiaai.gov.in/hub/indiaai-compute-capacity",
+      "snippet": "Union Minister of Electronics & IT, Railways, and I&B announces the availability of 18,000+ affordable AI compute units! Eligible users can access AI compute at up to 40% reduced cost under the IndiaAI Mission. Empanelment of AI compute, network, storage and cloud services has begun, with bidders offering diversified AI compute units, ensuring accessible and cost-effective AI resources for ..."
+    },
+    {
+      "title": "IndiaAI Mission Expands Compute Power, Foundation Model Development In ...",
+      "url": "https://www.etvbharat.com/en/!technology/indiaai-mission-new-gpus-backs-homegrown-ai-giants-self-reliance-enn25053005574",
+      "snippet": "The IndiaAI Mission was launched in March 2024 with an outlay budget of \u20b910,372 crore and described as a sophisticated, multi-scope mission designed to create equitable access to AI technology and advance Indian innovators, startups, and industries."
+    },
+    {
+      "title": "IndiaAI Mission Expands AI Ecosystem with Affordable Compute and ...",
+      "url": "https://www.digitalindia.gov.in/press_release/indiaai-mission-expands-ai-ecosystem-with-affordable-compute-and-startup-support/",
+      "snippet": "Government of India launched IndiaAI mission with outlay of Rs. 10,372 crore for the development of the overall AI ecosystem in the country. With India's push to democratise Artificial Intelligence and expand compute capacity, along with the rapid growth of data centres and cloud infrastructure, there has been a corresponding increase in demand for high-performance [\u2026]"
+    },
+    {
+      "title": "Cabinet Approves Ambitious IndiaAI Mission to Strengthen the AI ...",
+      "url": "https://www.pmindia.gov.in/en/news_updates/cabinet-approves-ambitious-indiaai-mission-to-strengthen-the-ai-innovation-ecosystem/",
+      "snippet": "In furtherance to the vision of Making AI in India and Making AI Work for India, the Cabinet chaired by the Prime Minister Shri Narendra Modi has approved the comprehensive national-level IndiaAI mission with a budget outlay of Rs.10,371.92 crore. The IndiaAI mission will establish a comprehensive ..."
+    },
+    {
+      "title": "PDF India's Common Compute Capacity Crosses 34,000 GP",
+      "url": "https://www.psa.gov.in/CMS/web/sites/default/files/publication/India\u2019s+Common+Compute+Capacity+Crosses+34,000+GPUs.pdf",
+      "snippet": "India's national compute capacity has crossed 34000 GPUs. Along with this, the selection of three new startups for building India's own Foundation Model, the IndiaAI Mission has taken a significant leap toward strengthening indigenous AI capabilities."
+    }
+  ]
+}

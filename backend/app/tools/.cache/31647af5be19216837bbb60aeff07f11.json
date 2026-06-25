@@ -1,0 +1,33 @@
+{
+  "query": "Indian GPU cloud startup LLM inference GPU as a service India",
+  "tool": "web_search",
+  "timestamp": "2026-06-25T18:31:31.858685",
+  "expiry_hours": 24,
+  "results": [
+    {
+      "title": "E2E Networks | India's GPU Cloud for AI & ML",
+      "url": "https://www.e2enetworks.com/",
+      "snippet": "India's leading cloud infrastructure provider, offering high-performance GPU computing, enterprise cloud solutions, and managed services for AI and ML workloads."
+    },
+    {
+      "title": "Top 7 GPU Cloud providers in India 2026 \u2014 Plans, Pricing & AI ...",
+      "url": "https://cloudminister.com/blog/gpu-cloud-providers-in-india/",
+      "snippet": "Apr 15, 2026 \u00b7 Not sure which GPU Cloud provider in India fits your AI workload? Compare 7 providers on monthly pricing, GPU models, uptime SLAs, managed support, and DPDP Act compliance."
+    },
+    {
+      "title": "GPU Cloud India | Rent NVIDIA GPUs from Rs49/hr",
+      "url": "https://www.e2enetworks.com/gpu-cloud",
+      "snippet": "GPU cloud computing provides on-demand access to powerful NVIDIA GPUs for AI training, machine learning, and HPC workloads without capital hardware investment. Learn about benefits, use cases, and how to get started."
+    },
+    {
+      "title": "GPU Cloud India \u2014 Rent NVIDIA GPUs from \u20b941.31/hr ...",
+      "url": "https://jarvislabs.ai/in",
+      "snippet": "JarvisLabs makes GPU cloud computing accessible in India with INR pricing, instant provisioning, and pre-configured ML environments. Launch a GPU instance in under 60 seconds with PyTorch, TensorFlow, or JAX pre-installed."
+    },
+    {
+      "title": "GPU Infrastructure for Indian AI Startups | HostgenX",
+      "url": "https://www.hostgenx.com/blog/engineering-the-future-how-indian-startups-scale-using-local-gpu-innovation/",
+      "snippet": "Feb 27, 2026 \u00b7 Discover how Indian startups scale AI with local GPU innovation. HostgenX delivers NVIDIA H100/L40 servers, low-latency data centers & 50% cost savings for LLM training and inference."
+    }
+  ]
+}
